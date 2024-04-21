@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using OgWeb.Data;
@@ -5,6 +6,7 @@ using OgWeb.Models;
 
 namespace OgWeb.Pages.Categories;
 
+[Authorize(Roles = "admin")]
 [BindProperties]
 public class DeleteModel : PageModel
 {

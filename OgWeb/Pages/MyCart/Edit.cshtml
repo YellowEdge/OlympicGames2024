@@ -1,0 +1,132 @@
+﻿@page
+@model OgWeb.Pages.MyCart.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ShoppingCart</h4>
+<hr />
+
+@if (Model.CartDetailEx is null)
+{
+    <h3>vous pouvez ajouter cet evenement dans le panier.</h3>
+    <h3>Choisissez l'offre que vous souhaitez afin d'ajouter cet evenement dans votre panier !</h3>
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post" asp-page-handler="Add">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="EventEx.Id" />
+
+                @* <div class="mb-3">
+                    <label asp-for="ShoppingCartIdEx"></label>
+                    <input asp-for="@Model.ShoppingCartIdEx" class="form-control" disabled />
+                    <span asp-validation-for="@Model.ShoppingCartIdEx" class="text-danger"></span>
+                </div> *@
+
+                <div class="mb-3">
+                    <label asp-for="EventEx.EventTitle"></label>
+                    <input asp-for="EventEx.EventTitle" class="form-control" disabled/>
+                    <span asp-validation-for="EventEx.EventTitle" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="EventEx.EventDesc"></label>
+                    <input asp-for="EventEx.EventDesc" class="form-control" disabled />
+                    <span asp-validation-for="EventEx.EventDesc" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="EventEx.Price"></label>
+                    <input asp-for="EventEx.Price" class="form-control" disabled />
+                    <span asp-validation-for="EventEx.Price" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="EventEx.StartDate"></label>
+                    <input asp-for="EventEx.StartDate" class="form-control" disabled />
+                    <span asp-validation-for="EventEx.StartDate" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="EventEx.Site.Addresse"></label>
+                    <input asp-for="EventEx.Site.Addresse" class="form-control" disabled />
+                    <span asp-validation-for="EventEx.Site.Addresse" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="EventEx.Category.Name"></label>
+                    <input asp-for="EventEx.Category.Name" class="form-control" disabled />
+                    <span asp-validation-for="EventEx.Category.Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CartDetailEx.Quantity" class="control-label"></label>
+                    <select style="background-color:aquamarine" asp-for="CartDetailEx.Quantity" class="form-control"
+                            asp-items="@Model.OfferSL">
+                        <option value="">-- Select Offer --</option>
+                    </select>
+                    <span asp-validation-for="CartDetailEx.Quantity" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+}
+else
+{
+    <h3>Cet evenement est déjà dans le panier.</h3>
+    <h3>Vous pouvez uniquement modifier l'offre si vous le souhaitez.</h3>
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post" asp-page-handler="Update">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="CartDetailEx.EventId" />
+                <input type="hidden" asp-for="CartDetailEx.ShoppingCartId" />
+               
+                <div class="form-group mb-3">
+                    <label asp-for="CartDetailEx.Quantity" class="control-label"></label>
+                    <select style="background-color:aquamarine" asp-for="CartDetailEx.Quantity" class="form-control"
+                            asp-items="@Model.OfferSL">
+                        <option value="">-- Select Offer --</option>
+                    </select>
+                    <span asp-validation-for="CartDetailEx.Quantity" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="CartDetailEx.UnitPrice"></label>
+                    <input type="number" asp-for="CartDetailEx.UnitPrice" class="form-control" disabled />
+                    <span asp-validation-for="CartDetailEx.UnitPrice" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="CartDetailEx.Event.EventTitle"></label>
+                    <input asp-for="CartDetailEx.Event.EventTitle" class="form-control" disabled />
+                    <span asp-validation-for="CartDetailEx.Event.EventTitle" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="CartDetailEx.Event.EventDesc"></label>
+                    <input asp-for="CartDetailEx.Event.EventDesc" class="form-control" disabled />
+                    <span asp-validation-for="CartDetailEx.Event.EventDesc" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="CartDetailEx.Event.Site.City"></label>
+                    <input asp-for="CartDetailEx.Event.Site.City" class="form-control" disabled />
+                    <span asp-validation-for="CartDetailEx.Event.Site.City" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="CartDetailEx.Event.Category.Name"></label>
+                    <input asp-for="CartDetailEx.Event.Category.Name" class="form-control" disabled />
+                    <span asp-validation-for="CartDetailEx.Event.EventTitle" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+}
+<div>
+    <a asp-page="/Ticketing/Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

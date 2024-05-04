@@ -6,12 +6,11 @@ using OgWeb.Models;
 
 namespace OgWeb.Pages;
 
-[Authorize]
 public class UserModel : PageModel
 {
     private readonly UserManager<ApplicationUser> userManager;
 
-    public ApplicationUser? appUser;
+    public ApplicationUser appUser;
     public UserModel(UserManager<ApplicationUser> userManager)
     {
         this.userManager = userManager;

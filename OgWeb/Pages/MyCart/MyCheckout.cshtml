@@ -1,0 +1,81 @@
+﻿@page
+@model OgWeb.Pages.MyCart.MyCheckoutModel
+@{
+}
+
+<h4>Paypal</h4>
+<div>
+	<p>
+		<a href="/Ticketing">Back to full List</a>
+	</p>
+</div>
+
+<script src="https://www.paypal.com/sdk/js?client-id=@(Model.PaypalClientId)&currency=USD"></script>
+
+<div class="p-5" style="background-color:black;">
+	<h1 class="text-center mb-5">@ViewData["heading"]</h1>
+	<div class="mx-auto p-3 bg-dark rouded border" style="width: 420px;">
+		<h2 class="text-center mb-5">@Model.FullName Complete your order</h2>
+		<h3>Amount to be paid: @Model.Total</h3>
+		<div id="notification-container"></div>
+		<div id="paypal-button-container"></div>
+	</div>
+</div>
+
+<script>
+	let paypal_buttons = paypal.Buttons({
+		createOrder() {
+			return fetch("MyCheckout?handler=CreateOrder", {
+				method: "POST"
+			})
+			.then((response) => response.json())
+			.then((order) => order.id);
+		},
+
+		onApprove(data) {
+			paypal_buttons.close();
+			// Capture the funds from the transaction.
+			return fetch("MyCheckout?handler=CompleteOrder", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					orderID: data.orderID
+				})
+			})
+			.then((response) => response.json())
+			.then((details) => {
+				if (details = "success") {
+					document.getElementById("notification-container").innerHTML =
+						'<div class="alert alert-danger" role="alert">The order is created successfully!</div>';
+				}
+				else {
+					document.getElementById("notification-container").innerHTML =
+						'<div class="alert alert-danger" role="alert">Failed to create the order!</div>';
+				}
+			});
+		},
+
+		onCancel(data) {
+			document.getElementById("notification-container").innerHTML =
+				'<div class="alert alert-danger" role="alert">Order Canceled!</div>';
+			
+			return fetch("MyCheckout?handler=CancelOrder", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					orderID: data.orderID
+				})
+			});
+		},
+
+		onError(err) {
+			document.getElementById("notification-container").innerHTML =
+				'<div class="alert alert-danger" role="alert">Failed to create the order!!!</div>';
+		}
+	});
+	paypal_buttons.render('#paypal-button-container');
+</script>

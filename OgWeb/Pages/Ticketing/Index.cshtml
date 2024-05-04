@@ -1,0 +1,128 @@
+﻿@page
+@model OgWeb.Pages.Ticketing.IndexModel
+
+@{
+    ViewData["Title"] = "Events";
+}
+
+<h2>Events</h2>
+<div>
+    <a asp-page="./Index">Back to full List</a>
+</div>
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            <h6>Find events:</h6>            
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" />
+        </p>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
+                   asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Events[0].EventTitle)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Events[0].EventDesc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Events[0].Price)
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort"
+                   asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Events[0].StartDate)
+                </a>
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.Events[0].Site) *@
+                Location
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Events[0].Category)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Events)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventDesc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @* @Html.DisplayFor(modelItem => item.Site.Addresse) *@
+                    [@item.Site.City] &nbsp; @item.Site.Addresse
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Name)
+                </td>
+                <td>                    
+                    @* <a id="myLink" href="" onclick="add(@item.Id);return false;">Add to cart</a> *@
+                    <a asp-page="/MyCart/Edit" asp-route-eventId="@item.Id">Add to cart</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.Events.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Events.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Events.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Events.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @nextDisabled">
+    Next
+</a>
+
+
+@* @section Scripts {
+    <script>
+        async function add(eventId) {
+             var usernameEl = document.getElementById("username");
+            if(usernameEl==null){
+                window.location.href = "/Identity/Account/Login";
+            }
+            try {
+                var response = await fetch(`/Cart/AddItem?eventId=${eventId}`);
+                if (response.status == 200) {
+                    var result = await response.json();
+                    var cartCountEl = document.getElementById("cartCount");
+                    cartCountEl.innerHTML = result;
+                    window.location.href = "#cartCount";
+                }
+            }
+            catch (err) {
+                console.log(err);
+            }
+        }
+    </script>
+} *@

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Order>
+@{
+}
+<div style="width:100%" class="mt-2">
+    <h4>My Orders</h4>
+    <div>
+        <p>
+            <a href="/Ticketing">Back to full List</a>
+        </p>
+    </div>
+    @if (Model != null && Model.Count() > 0)
+    {
+        <table class="table table-striped">
+            <tr>
+                <th>Order Date</th>
+                <th>Total</th>
+                <th>Is Paid</th>
+                <th>Order Status</th>
+            </tr>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.CreateDate.ToString("dd-MM-yyyy")</td>
+                    <td>@(order.OrderDetails.Select(item => item.Event.Price * item.Quantity).Sum())</td>
+                    <td>@order.IsPaid</td>
+                    <td>@order.OrderStatus.StatusName</td>                    
+                </tr>
+                @if (order.OrderDetails != null && order.OrderDetails.Count > 0)
+                {
+                    <tr>
+                        <td>
+                            <table class="table table-striped">                               
+                                <tr>
+                                    <th>Event</th>
+                                    <th>Description</th>
+                                    <th>Unit Price</th>
+                                    <th>Total Price</th>
+                                </tr>
+                                @foreach (var item in order.OrderDetails)
+                                {
+                                    <tr>
+                                        <td>@item.Event.EventTitle</td>                                  
+                                        <td>@item.Event.EventDesc</td>
+                                        <td>@item.Event.Price X @item.Quantity</td>
+                                        <td> @(item.Event.Price * item.Quantity) </td>
+                                    </tr>
+                                }
+                            </table>
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+
+    }
+    else
+    {
+        <h5>No orders</h5>
+    }
+</div>

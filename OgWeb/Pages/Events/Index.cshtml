@@ -1,0 +1,117 @@
+﻿@page
+@model OgWeb.Pages.Events.IndexModel
+
+@{
+    ViewData["Title"] = "Events";
+}
+
+<partial name="_Notification" />
+
+<div class="row pt-4">
+    <div class="col-6">
+        <h2 class="text-primary">Manage Events</h2>
+    </div>
+    <div class="col-6 text-end">
+        <a asp-page="create" class="btn btn-primary">
+            <i class="bi bi-plus-square"></i> &nbsp;Create New Event
+        </a>
+    </div>
+</div>
+
+<br />
+<br />
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find events:
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" /> |
+            <a asp-page="./Index">Back to full List</a>
+        </p>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
+                   asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Events[0].EventTitle)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Events[0].EventDesc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Events[0].Price)
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort"
+                   asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Events[0].StartDate)
+                </a>
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.Events[0].Site) *@
+                Location
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Events[0].Category)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Events)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventDesc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @* @Html.DisplayFor(modelItem => item.Site.Addresse) *@
+                    [@item.Site.City] &nbsp; @item.Site.Addresse
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Name)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.Events.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Events.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Events.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Events.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @nextDisabled">
+    Next
+</a>

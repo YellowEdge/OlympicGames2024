@@ -24,9 +24,10 @@ public class EditModel : PageModel
 
     public async Task<IActionResult> OnPost()
     {
-        if(Category.Name == Category.DisplayOrder.ToString())
+        //if(Category.Name == Category.Desc.ToString())
+        if(Category.Name == Category.Desc)
         {
-            ModelState.AddModelError("Category.Name", "The Display Order cannot exactly match the Name.");
+            ModelState.AddModelError("Category.Name", "The Description cannot exactly match the Name.");
         }
         if (ModelState.IsValid)
         {

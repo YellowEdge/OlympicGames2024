@@ -1,0 +1,56 @@
+﻿@model ShoppingCart
+@{
+    ViewData["Title"] = "GetUserCart";
+}
+
+<div style="width:90%;margin:auto" class="mt-2">
+    @if (Model != null && Model.CartDetails != null && Model.CartDetails.Count > 0)
+    {
+        <h4>My Cart</h4>
+        <div>
+            <p>              
+                <a href="/Ticketing">Back to full List</a>
+            </p>
+        </div>
+
+        <table class="table table-striped">
+            <tr>
+                <th>Event</th>
+                <th>City</th>
+                <th>Category</th>
+                <th>Unit Price</th>
+                <th>Total Price</th>
+                <th>Action</th>
+            </tr>
+            @foreach (var item in Model.CartDetails)
+            {
+                <tr>
+                    <td>@item.Event.EventTitle</td>
+                    <td>@item.Event.Site.City</td>
+                    <td>@item.Event.Category.Name</td>
+                    <td>@item.Event.Price X @item.Quantity</td>
+                    <td>@(item.Event.Price * item.Quantity)</td>
+                    <td>
+                        <a class="btn btn-info" asp-page="/MyCart/Edit" asp-route-eventId="@item.EventId"><i class="bi bi-pen"></i> Edit</a>
+                        <a class="btn btn-danger" href="/cart/removeitem?eventid=@item.EventId"><i class="bi bi-trash"></i> Remove</a>
+                    </td>
+                </tr>
+            }
+        </table>
+
+        <div class="my-2">
+            <h5>Total: </h5>
+            @(Model.CartDetails.Select(item => item.Event.Price * item.Quantity).Sum())
+        </div>
+
+        <div class="my-2">
+            <a class="btn btn-primary" href="/Cart/Checkout">Checkout</a>
+        </div>
+
+    }
+    else
+    {
+        <h5>Cart is empty</h5>
+    }
+</div>
+

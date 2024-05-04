@@ -1,0 +1,38 @@
+﻿@page
+@model OgWeb.Pages.Offers.EditModel
+
+<form method="post">
+    <input hidden asp-for="Offer.Id" />
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary pl-3">Edit Offer</h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="mb-3">
+            <label asp-for="Offer.Name"></label>
+            <input asp-for="@Model.Offer.Name" class="form-control" />
+            <span asp-validation-for="Offer.Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Offer.Desc"></label>
+            <input asp-for="Offer.Desc" class="form-control" />
+            <span asp-validation-for="Offer.Desc" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Offer.Quantity"></label>
+            <input asp-for="Offer.Quantity" class="form-control" />
+            <span asp-validation-for="Offer.Quantity" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px;">Update</button>
+        <a asp-page="Index" class="btn btn-secondary" style="width:150px;">Back to List</a>
+    </div>
+
+
+</form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

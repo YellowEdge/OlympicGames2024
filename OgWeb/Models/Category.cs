@@ -1,16 +1,20 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace OgWeb.Models
+namespace OgWeb.Models;
+
+[Table("Category")]
+public class Category
 {
-    public class Category
-    {
-        [Key]
-        public int Id { get; set; }
-        [Required]
-        [MaxLength(255)]
-        public string Name { get; set; }
-        [Display(Name="Display Order")]
-        [Range(1,100,ErrorMessage="Display Order must be in range of 1-100 !")]
-        public int DisplayOrder { get; set; }
-    }
+    [Key]
+    public int Id { get; set; }
+    [Required]
+    [MaxLength(255)]
+    public string Name { get; set; }
+    [Display(Name = "Description")]
+    [Required]
+    [MaxLength(1000)]
+    public string Desc { get; set; }
+
+    public List<Event> Events { get; set; }
 }

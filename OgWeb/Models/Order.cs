@@ -31,6 +31,9 @@ public class Order
     [MaxLength(30)]
     public string PaymentMethod { get; set; }
     public bool IsPaid { get; set; }
+    [Required]
+    [MaxLength(80)]
+    public string TicketKey { get; set; }
 
     public OrderStatus OrderStatus { get; set; }
     public List<OrderDetail> OrderDetails { get; set; }

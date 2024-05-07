@@ -1,0 +1,137 @@
+﻿@page 
+@model IndexModel
+@{
+    ViewData["Title"] = "Ticket Control";
+}
+
+<h4>Ticket Control</h4>
+<div>
+    <p>
+        <a href="/">Back to home</a>
+    </p>
+</div>
+
+<div class="row col-md-8 m-auto" >
+    <form asp-page="Index" method="post">
+        <div class="mb-3"><h4>Scan the E-Ticket to control information about the client and the events.</h4></div>
+        <div class="form-group">
+            <input asp-for="ScannedKey" class="form-control mb-3 placeholder="Enter E-Ticket key" />
+            <span asp-validation-for="ScannedKey" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Control" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+<br />
+<br />
+
+@if (Model.TotalOrders != 0 || Model.TicketData.usersByKey != null)
+{
+    @if (Model.TotalOrders != 0)
+    {
+        <h3 class="mb-3">
+            Order details
+        </h3>
+
+        <table class="table table-striped">
+            <tr>
+                <th>Order Date</th>
+                <th>Total</th>
+                <th>Is Paid</th>
+                <th>Order Status</th>
+            </tr>
+            @foreach (var order in Model.TicketData.orders)
+            {
+                <tr>
+                    <td>@order.CreateDate.ToString("dd-MM-yyyy")</td>
+                    <td>@(order.OrderDetails.Select(item => item.Event.Price * item.Quantity).Sum())</td>
+                    <td>@order.IsPaid</td>
+                    <td>@order.OrderStatus.StatusName</td>
+                </tr>
+                @if (order.OrderDetails != null && order.OrderDetails.Count > 0)
+                {
+                    <tr>
+                        <td>
+                            <table class="table table-striped">
+                                <tr>
+                                    <th>Event</th>
+                                    <th>Description</th>
+                                    <th>Unit Price</th>
+                                    <th>Total Price</th>
+                                </tr>
+                                @foreach (var item in order.OrderDetails)
+                                {
+                                    <tr>
+                                        <td>@item.Event.EventTitle</td>
+                                        <td>@item.Event.EventDesc</td>
+                                        <td>@item.Event.Price X @item.Quantity</td>
+                                        <td>@(item.Event.Price * item.Quantity)</td>
+                                    </tr>
+                                }
+                            </table>
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+    }
+    else
+    {
+        <h3 class="mb-3">
+            Order details
+        </h3>
+        <h3 class="text-danger mb-3">Invalid key. Events not found. There is a problem !</h3>
+    }
+
+    @if (Model.TicketData.usersByKey != null)
+    {
+        <h3 class="mb-3">
+            Client details
+        </h3>
+        <table class="table">
+            <tr>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email</th>
+                <th>PhoneNumber</th>
+                <th>Address</th>
+                <th>CreatedAt</th>
+            </tr>
+            <tr>
+                <td>
+                    @Model.TicketData.usersByKey.FirstName
+                </td>
+                <td>
+                    @Model.TicketData.usersByKey.LastName
+                </td>
+                <td>
+                    @Model.TicketData.usersByKey.Email
+                </td>
+                <td>
+                    @Model.TicketData.usersByKey.PhoneNumber
+                </td>
+                <td>
+                    @Model.TicketData.usersByKey.Address
+                </td>
+                <td>
+                    @Model.TicketData.usersByKey.CreatedAt
+                </td>
+            </tr>
+        </table>
+    }
+    else
+    {
+        <h3 class="mb-3">
+            Client details
+        </h3>
+        <h3 class="text-danger">Client not found. There is a problem !</h3>
+    }
+}
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

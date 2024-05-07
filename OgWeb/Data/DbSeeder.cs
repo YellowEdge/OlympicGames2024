@@ -13,6 +13,7 @@ public class DbSeeder
         //adding some roles to db
         var adminRoleExits = await roleMgr.FindByNameAsync(Roles.admin.ToString());
         var clientRoleExits = await roleMgr.FindByNameAsync(Roles.client.ToString());
+        var securityRoleExits = await roleMgr.FindByNameAsync(Roles.security.ToString());
 
         if (adminRoleExits is null)
         {
@@ -27,11 +28,11 @@ public class DbSeeder
         if (clientRoleExits is null)
         {
             await roleMgr.CreateAsync(new IdentityRole(Roles.client.ToString()));
-            //clientRoleExits = await roleMgr.FindByNameAsync(Roles.client.ToString());
-            //if (!clientRoleExits.NormalizedName.Equals(Roles.client.ToString()))
-            //{
-            //    clientRoleExits.NormalizedName = "client";
-            //}
+        }
+
+        if (securityRoleExits is null)
+        {
+            await roleMgr.CreateAsync(new IdentityRole(Roles.security.ToString()));
         }
 
         // create admin user
@@ -69,6 +70,25 @@ public class DbSeeder
             {
                 await userMgr.CreateAsync(ana, "Azerty01$");
                 await userMgr.AddToRoleAsync(ana, Roles.client.ToString());
+            }
+        }
+
+        //create security user
+        var secUserExists = userMgr.FindByEmailAsync("bull@paris.jo");
+        if (secUserExists is null)
+        {
+            var bull = new ApplicationUser
+            {
+                UserName = "bull@paris.jo",
+                Email = "bull@paris.jo",
+                EmailConfirmed = true
+            };
+
+            var secInDb = await userMgr.FindByEmailAsync(bull.Email);
+            if (secInDb is null)
+            {
+                await userMgr.CreateAsync(bull, "Azerty01$");
+                await userMgr.AddToRoleAsync(bull, Roles.client.ToString());
             }
         }
     }

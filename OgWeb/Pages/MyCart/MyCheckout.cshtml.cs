@@ -28,7 +28,7 @@ public class MyCheckoutModel : PageModel
     {
 		FullName = name;
         Total = total;
-		ViewData["heading"] = "Welcome  to PayPal !";
+		ViewData["heading"] = "Welcome to PayPal !";
 	}
 
     public JsonResult OnPostCreateOrder()
@@ -134,8 +134,6 @@ public class MyCheckoutModel : PageModel
 						bool ispaid = true;
                         // clear cookie
 
-						//down added
-
 						CheckoutModel model = new CheckoutModel();
                         model.Address = TempData["Address"].ToString();
 						model.Name = TempData["Name"].ToString();
@@ -146,7 +144,6 @@ public class MyCheckoutModel : PageModel
 						var isCheckedOut = await _cartRepo.DoCheckout(model, ispaid);
 						// clear TempData
 						TempData.Clear();
-						// up added
 
 						return new JsonResult("success");
                     }

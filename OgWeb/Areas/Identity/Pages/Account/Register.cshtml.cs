@@ -133,7 +133,8 @@ namespace OgWeb.Areas.Identity.Pages.Account
                     PhoneNumber = Input.PhoneNumber,
                     Address = Input.Address,
                     CreatedAt = DateTime.Now,
-                };
+                    UserKey = Guid.NewGuid().ToString()
+            };
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)

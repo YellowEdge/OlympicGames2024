@@ -47,6 +47,18 @@ public class UserOrderRepository : IUserOrderRepository
         await _db.SaveChangesAsync();
     }
 
+    public bool GetPaymentStatusByKey(string key)
+    {
+        var order = _db.Orders.FirstOrDefault(o => o.TicketKey == key);
+        if (order == null)
+        {
+            throw new InvalidOperationException($"No order found.");
+        }
+
+        return order.IsPaid;
+    }
+
+
     public async Task<IEnumerable<Order>> UserOrders(bool getAll = false)
     {
         var orders = _db.Orders
@@ -73,4 +85,3 @@ public class UserOrderRepository : IUserOrderRepository
         return userId;
     }
 }
-

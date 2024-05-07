@@ -22,6 +22,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<ICartRepository, CartRepository>();
 builder.Services.AddTransient<IUserOrderRepository, UserOrderRepository>();
+builder.Services.AddScoped<IQRCodeGeneratorRepository, QRCodeGeneratorRepository>();
 
 var app = builder.Build();
 

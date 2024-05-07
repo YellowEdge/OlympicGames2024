@@ -1,4 +1,6 @@
-﻿namespace OgWeb.Repositories;
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace OgWeb.Repositories;
 
 public class CartRepository : ICartRepository
 {
@@ -130,7 +132,7 @@ public class CartRepository : ICartRepository
         var data = await (from cart in _db.ShoppingCarts
                           join cartDetail in _db.CartDetails
                           on cart.Id equals cartDetail.ShoppingCartId
-                          where cart.UserId == userId // updated line
+                          where cart.UserId == userId
                           select new { cartDetail.Id }
                     ).ToListAsync();
         return data.Count;
@@ -156,6 +158,9 @@ public class CartRepository : ICartRepository
             var pendingRecord = _db.OrderStatuses.FirstOrDefault(s => s.StatusName == "Pending");
             if (pendingRecord is null)
                 throw new Exception("Order status does not have Pending status");
+
+            var user = await _userManager.FindByIdAsync(userId);
+
             var order = new Order
             {
                 UserId = userId,
@@ -166,7 +171,8 @@ public class CartRepository : ICartRepository
                 PaymentMethod = model.PaymentMethod,
                 Address = model.Address,
                 IsPaid = ispaid,
-                OrderStatusId = pendingRecord.Id
+                OrderStatusId = pendingRecord.Id,
+                TicketKey = user.UserKey + Guid.NewGuid().ToString()
             };
             _db.Orders.Add(order);
             _db.SaveChanges();

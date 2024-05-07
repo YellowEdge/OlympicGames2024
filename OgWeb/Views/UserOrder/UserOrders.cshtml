@@ -29,6 +29,11 @@
                 {
                     <tr>
                         <td>
+                            <form class="mt-3" asp-action="UserEticket" method="post" asp-route-text="@order.TicketKey">
+                                <button type="submit" class="btn btn-primary">E-Ticket</button>
+                            </form>
+                        </td>
+                        <td>
                             <table class="table table-striped">                               
                                 <tr>
                                     <th>Event</th>

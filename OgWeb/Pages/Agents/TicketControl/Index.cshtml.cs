@@ -63,7 +63,5 @@ public class IndexModel : PageModel
                 TicketData.usersByKey = null;
             }
         }
-
-
     }
 }

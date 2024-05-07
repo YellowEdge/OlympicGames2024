@@ -131,17 +131,17 @@ public class MyCheckoutModel : PageModel
                     {
                         
 						// update payment status in database => "accepted"
-						bool ispaid = true;
+						bool ispaid = true; string status = "Delivered";
                         // clear cookie
 
-						CheckoutModel model = new CheckoutModel();
+                        CheckoutModel model = new CheckoutModel();
                         model.Address = TempData["Address"].ToString();
 						model.Name = TempData["Name"].ToString();
 						model.Email = TempData["Email"].ToString();
 						model.MobileNumber = TempData["MobileNumber"].ToString();
 						model.PaymentMethod = TempData["PaymentMethod"].ToString();
 
-						var isCheckedOut = await _cartRepo.DoCheckout(model, ispaid);
+						var isCheckedOut = await _cartRepo.DoCheckout(model, ispaid, status);
 						// clear TempData
 						TempData.Clear();
 

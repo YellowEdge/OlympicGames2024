@@ -50,7 +50,7 @@ public class CartController : Controller
         if (!ModelState.IsValid)
             return View(model);
 
-        bool ispaid = false;
+        bool ispaid = false; string status = "Pending";
         if (model.PaymentMethod == "Paypal")
 		{
 			var cart = await _cartRepo.GetUserCart();
@@ -66,9 +66,10 @@ public class CartController : Controller
         }else if (model.PaymentMethod == "Online")
         {
             ispaid = true;
+            status = "Delivered";
         }
 		
-		var isCheckedOut = await _cartRepo.DoCheckout(model, ispaid);
+		var isCheckedOut = await _cartRepo.DoCheckout(model, ispaid, status);
                 
         if (!isCheckedOut)
             return RedirectToAction(nameof(OrderFailure));

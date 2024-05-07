@@ -138,7 +138,7 @@ public class CartRepository : ICartRepository
         return data.Count;
     }
 
-    public async Task<bool> DoCheckout(CheckoutModel model,bool ispaid)
+    public async Task<bool> DoCheckout(CheckoutModel model,bool ispaid,string status)
     {
         using var transaction = _db.Database.BeginTransaction();
         try
@@ -155,8 +155,8 @@ public class CartRepository : ICartRepository
                                 .Where(a => a.ShoppingCartId == cart.Id).ToList();
             if (cartDetail.Count == 0)
                 throw new Exception("Cart is empty");
-            var pendingRecord = _db.OrderStatuses.FirstOrDefault(s => s.StatusName == "Pending");
-            if (pendingRecord is null)
+            var statusRecord = _db.OrderStatuses.FirstOrDefault(s => s.StatusName == status);
+            if (statusRecord is null)
                 throw new Exception("Order status does not have Pending status");
 
             var user = await _userManager.FindByIdAsync(userId);
@@ -171,7 +171,7 @@ public class CartRepository : ICartRepository
                 PaymentMethod = model.PaymentMethod,
                 Address = model.Address,
                 IsPaid = ispaid,
-                OrderStatusId = pendingRecord.Id,
+                OrderStatusId = statusRecord.Id,
                 TicketKey = user.UserKey + Guid.NewGuid().ToString()
             };
             _db.Orders.Add(order);

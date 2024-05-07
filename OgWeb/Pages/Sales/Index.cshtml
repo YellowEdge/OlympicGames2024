@@ -1,0 +1,49 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Sales Metrics";
+}
+
+<h3>Sales</h3>
+<div>
+    <p>
+        <a href="/">Back to home</a>
+    </p>
+</div>
+
+
+<h4 class="mb-3">
+    Sales Metrics
+</h4>
+<br />
+<br />
+
+@if (Model.TotalCount != 0)
+{
+    <h4 class="mb-3">
+        Number of sales by offer
+    </h4>
+
+    <table class="table table-striped">
+        <tr>
+            <th>Offer quantity</th>
+            <th>Offer name</th>
+            <th>Number of sales</th>
+        </tr>
+        @foreach (var line in Model.OfferMetrics)
+        {
+            <tr>
+                <td>@line.OfferMetric</td>
+                <td>@line.MetricName</td>                
+                <td>@line.Count</td>
+            </tr>            
+        }
+    </table>
+}
+else
+{
+    <h4 class="mb-3">
+        Number of sales by offer
+    </h4>
+    <h5 class="text-danger mb-3">Metrics not found !</h5>
+}

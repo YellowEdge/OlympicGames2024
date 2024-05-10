@@ -7,6 +7,38 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\assets\**" />
+    <Content Remove="wwwroot\assets\**" />
+    <EmbeddedResource Remove="wwwroot\assets\**" />
+    <None Remove="wwwroot\assets\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\js\main.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Pages\MyCart\Create.cshtml.cs.suppr" />
+    <None Remove="Pages\MyCart\Create.cshtml.suppr" />
+    <None Remove="Pages\MyCart\Delete.cshtml.cs.suppr" />
+    <None Remove="Pages\MyCart\Delete.cshtml.suppr" />
+    <None Remove="Pages\MyCart\Details.cshtml.cs.suppr" />
+    <None Remove="Pages\MyCart\Details.cshtml.suppr" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Pages\MyCart\Create.cshtml.cs.suppr" />
+    <Compile Include="Pages\MyCart\Delete.cshtml.cs.suppr" />
+    <Compile Include="Pages\MyCart\Details.cshtml.cs.suppr" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Pages\MyCart\Create.cshtml.suppr" />
+    <Content Include="Pages\MyCart\Delete.cshtml.suppr" />
+    <Content Include="Pages\MyCart\Details.cshtml.suppr" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.4" />
@@ -30,6 +62,10 @@
 
   <ItemGroup>
     <Folder Include="Pages\so\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\js\main.js" />
   </ItemGroup>
 
 </Project>

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using OgWeb.Models;
@@ -7,7 +8,8 @@ using System.Text.Json.Nodes;
 
 namespace OgWeb.Pages.MyCart;
 
-[IgnoreAntiforgeryToken]
+[Authorize(Roles = "admin,client")]
+//[IgnoreAntiforgeryToken]
 public class MyCheckoutModel : PageModel
 {
 	private readonly ICartRepository _cartRepo;
@@ -25,11 +27,12 @@ public class MyCheckoutModel : PageModel
 		_cartRepo = cartRepo;
 	}
     public void OnGet(string name, string total)
-    {
-		FullName = name;
-        Total = total;
-		ViewData["heading"] = "Welcome to PayPal !";
-	}
+    { 
+        FullName = TempData["Name"]?.ToString() ?? "";
+        Total = TempData["Total"]?.ToString() ?? "";
+        ViewData["heading"] = "Welcome to PayPal !";
+        TempData.Keep();
+    }
 
     public JsonResult OnPostCreateOrder()
     {

@@ -45,6 +45,7 @@ public class CartController : Controller
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Checkout(CheckoutModel model)
     {
         if (!ModelState.IsValid)
@@ -62,7 +63,7 @@ public class CartController : Controller
             TempData["Address"] = model.Address;
             TempData["PaymentMethod"] = model.PaymentMethod;
 
-            return RedirectToPage("/Mycart/MyCheckout", new { name = model.Name, total = Total });
+            return RedirectToPage("/Mycart/MyCheckout");
         }else if (model.PaymentMethod == "Online")
         {
             ispaid = true;

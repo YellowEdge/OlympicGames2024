@@ -10,15 +10,17 @@ using OgWeb.Models;
 
 namespace OgWeb.Pages.MyCart
 {
-    public class DetailsModel : PageModel
+    //[Authorize(Roles = "admin")]
+    public class DeleteModel : PageModel
     {
         private readonly OgWeb.Data.ApplicationDbContext _context;
 
-        public DetailsModel(OgWeb.Data.ApplicationDbContext context)
+        public DeleteModel(OgWeb.Data.ApplicationDbContext context)
         {
             _context = context;
         }
 
+        [BindProperty]
         public ShoppingCart ShoppingCart { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -29,6 +31,7 @@ namespace OgWeb.Pages.MyCart
             }
 
             var shoppingcart = await _context.ShoppingCarts.FirstOrDefaultAsync(m => m.Id == id);
+
             if (shoppingcart == null)
             {
                 return NotFound();
@@ -38,6 +41,24 @@ namespace OgWeb.Pages.MyCart
                 ShoppingCart = shoppingcart;
             }
             return Page();
+        }
+
+        public async Task<IActionResult> OnPostAsync(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var shoppingcart = await _context.ShoppingCarts.FindAsync(id);
+            if (shoppingcart != null)
+            {
+                ShoppingCart = shoppingcart;
+                _context.ShoppingCarts.Remove(ShoppingCart);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToPage("./Index");
         }
     }
 }

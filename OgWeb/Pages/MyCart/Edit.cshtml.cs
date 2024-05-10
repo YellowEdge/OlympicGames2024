@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -15,6 +16,7 @@ using OgWeb.Models;
 
 namespace OgWeb.Pages.MyCart;
 
+[Authorize(Roles = "admin,client")]
 [BindProperties]
 public class EditModel : CartDetailEventPageModel
 {
@@ -166,7 +168,6 @@ public class EditModel : CartDetailEventPageModel
             throw;
         }
 
-        // Select CategorieID and SiteId if TryUpdateModelAsync fails.
         PopulateOffersDropDownList(_db, emptyCartItem.Quantity);
         return Page();
     }

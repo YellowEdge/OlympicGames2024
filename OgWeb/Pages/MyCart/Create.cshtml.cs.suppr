@@ -10,6 +10,7 @@ using OgWeb.Models;
 
 namespace OgWeb.Pages.MyCart
 {
+    //[Authorize(Roles = "admin")]
     public class CreateModel : PageModel
     {
         private readonly OgWeb.Data.ApplicationDbContext _context;

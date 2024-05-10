@@ -12,8 +12,8 @@
 
 @if (Model.CartDetailEx is null)
 {
-    <h3>vous pouvez ajouter cet evenement dans le panier.</h3>
-    <h3>Choisissez l'offre que vous souhaitez afin d'ajouter cet evenement dans votre panier !</h3>
+    <h4>vous pouvez ajouter cet évènement dans le panier.</h4>
+    <h4>Choisissez l'offre que vous souhaitez afin d'ajouter cet évènement dans votre panier !</h4>
     <div class="row">
         <div class="col-md-4">
             <form method="post" asp-page-handler="Add">
@@ -66,6 +66,7 @@
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Save" class="btn btn-primary" />
+                    <a class="btn btn-secondary" asp-page="/Ticketing/Index">Back to List</a>
                 </div>
             </form>
         </div>
@@ -74,8 +75,8 @@
 }
 else
 {
-    <h3>Cet evenement est déjà dans le panier.</h3>
-    <h3>Vous pouvez uniquement modifier l'offre si vous le souhaitez.</h3>
+    <h4>Cet évènement est déjà dans le panier.</h4>
+    <h4>Vous pouvez uniquement modifier l'offre si vous le souhaitez.</h4>
     <div class="row">
         <div class="col-md-4">
             <form method="post" asp-page-handler="Update">
@@ -118,14 +119,13 @@ else
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Save" class="btn btn-primary" />
+                    <a class="btn btn-secondary" href="/Cart/GetUserCart">Back to cart</a>
+                    <a class="btn btn-secondary" asp-page="/Ticketing/Index">Back to List</a>
                 </div>
             </form>
         </div>
     </div>
 }
-<div>
-    <a asp-page="/Ticketing/Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

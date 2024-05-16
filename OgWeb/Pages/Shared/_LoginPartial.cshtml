@@ -3,86 +3,105 @@
 
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
+@* down *@
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
 
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {
-        if (User.IsInRole("admin"))
+        if ((AuthorizationService.AuthorizeAsync(User, "TwoFactorEnabled")).Result.Succeeded)
         {
-            <li class="nav-item">
-                <a class="nav-link" asp-area="" asp-page="/Events/Index">Events</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-area="" asp-page="/Categories/Index">Categories</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-area="" asp-page="/Offers/Index">Offers</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-area="" asp-page="/Sales/Index">Sales</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-area="" asp-page="/Sites/Index">Sites</a>
-            </li>            
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Admin
-                </a>
-                <ul class="dropdown-menu">
-                    <li> <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">Profile</a></li>
-                    <li> <hr class="dropdown-divider"></li>
-                    <li> <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout">Logout</a></li>
-                </ul>
-            </li>
-        }
-        else if (User.IsInRole("client"))
-        {
-            <li class="nav-item">
-                <a class="nav-link" href="/UserOrder/UserOrders">My Orders</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/Cart/GetUserCart">
-                    <span id="cartCount" class="badge text-bg-info">0</span>
-                    <i class="bi bi-cart"></i>
-                </a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Client
-                </a>
-                <label id="username" hidden>@User.Identity?.Name</label>
-                <ul class="dropdown-menu">
-                    <li> <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">Profile</a></li>
-                    <li> <hr class="dropdown-divider"></li>
-                    <li> <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout">Logout</a></li>
-                </ul>
-            </li>
-        }
-        else if (User.IsInRole("ticketcontrol"))
-        {
-            <li class="nav-item">
-                <a class="nav-link" href="/Agents/TicketControl">Ticket Control</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Agent
-                </a>
-                <label id="username" hidden>@User.Identity?.Name</label>
-                <ul class="dropdown-menu">
-                    <li> <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">Profile</a></li>
-                    <li> <hr class="dropdown-divider"></li>
-                    <li> <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout">Logout</a></li>
-                </ul>
-            </li>
+            if (User.IsInRole("admin"))
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-page="/Events/Index">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-page="/Categories/Index">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-page="/Offers/Index">Offers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-page="/Sales/Index">Sales</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-page="/Sites/Index">Sites</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Admin
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li> <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">Profile</a></li>
+                        <li> <hr class="dropdown-divider"></li>
+                        <li> <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout">Logout</a></li>
+                    </ul>
+                </li>
+            }
+            else if (User.IsInRole("client"))
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="/UserOrder/UserOrders">My Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Cart/GetUserCart">
+                        <span id="cartCount" class="badge text-bg-info">0</span>
+                        <i class="bi bi-cart"></i>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Client
+                    </a>
+                    <label id="username" hidden>@User.Identity?.Name</label>
+                    <ul class="dropdown-menu">
+                        <li> <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">Profile</a></li>
+                        <li> <hr class="dropdown-divider"></li>
+                        <li> <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout">Logout</a></li>
+                    </ul>
+                </li>
+            }
+            else if (User.IsInRole("ticketcontrol"))
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="/Agents/TicketControl">Ticket Control</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Agent
+                    </a>
+                    <label id="username" hidden>@User.Identity?.Name</label>
+                    <ul class="dropdown-menu">
+                        <li> <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">Profile</a></li>
+                        <li> <hr class="dropdown-divider"></li>
+                        <li> <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout">Logout</a></li>
+                    </ul>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                </li>
+            }
         }
         else
         {
-            <li class="nav-item">
-                <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
-            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Menu
+                </a>
+                <ul class="dropdown-menu">
+                    <li> <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">Profile</a></li>
+                    <li> <hr class="dropdown-divider"></li>
+                    <li> <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout">Logout</a></li>
+                </ul>
+            </li>            
         }
     }
     else

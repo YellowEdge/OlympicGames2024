@@ -3,11 +3,18 @@ using OgWeb.Data;
 using Microsoft.AspNetCore.Identity;
 using OgWeb.Models;
 using OgWeb.Repositories;
+using OgWeb;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.AccessDeniedPath = new PathString("/AccessDenied");
+});
 
 builder.Services.AddDbContext<ApplicationDbContext>(options=>options.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection")
@@ -16,6 +23,16 @@ builder.Services.AddDbContext<ApplicationDbContext>(options=>options.UseSqlServe
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+//up
+builder.Services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>, AdditionalUserClaimsPrincipalFactory>();
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("TwoFactorEnabled",
+        x => x.RequireClaim("TwoFactorEnabled", "true")
+    );
+});
+//up
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -27,10 +44,12 @@ builder.Services.AddScoped<IQRCodeGeneratorRepository, QRCodeGeneratorRepository
 var app = builder.Build();
 
 // Uncomment it when you run the project first time, It will registered an admin
-//using (var scope = app.Services.CreateScope())
-//{
-//    await DbSeeder.SeedDefaultData(scope.ServiceProvider);
-//}
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<ApplicationDbContext>();
+    await DbSeeder.SeedDefaultData(scope.ServiceProvider, context);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -49,6 +68,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

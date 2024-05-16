@@ -1,8 +1,373 @@
 ﻿@page
-@model PrivacyModel
 @{
-    ViewData["Title"] = "Privacy Policy";
+    Layout = null;
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Privacy</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="~/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <header id="header">
+        <div class="container d-flex flex-column align-items-center justify-content-center">
+            <div>
+                <h1>INTERNATIONAL OLYMPIC COMMITTEE - PRIVACY POLICY</h1>
+            </div>
+            <div class="d-flex justify-content-center" >
+                <h1 style="color:#24b7a4">
+                    <a href="/"><i class="bi bi-house-up-fill"></i></i></a>
+                    <a onclick="window.history.back()"><i class="bi bi-arrow-left-circle-fill"></i></a>
+                </h1>
+            </div>
+            <div>
+                <p>La présente Politique de confidentialité, périodiquement mise à jour, explique comment le Comité international olympique ("<strong>CIO</strong>") traite les données à caractère personnel dans le cadre de ses activités numériques. Par exemple, les sites Web, les applications mobiles, les applications pour TV connectée, les systèmes d’inscription, le marketing numérique, les services professionnels en ligne et autres ressources commerciales, ainsi que les services de communication et d'informations gérés par le CIO, seul ou en coopération avec d'autres membres du Mouvement olympique. Ces activités sont appelées les "<strong>Services</strong>" dans la présente Politique de confidentialité.</p>
+
+                <p>Elle détaille également la manière dont le CIO traite les données à caractère personnel qu'il reçoit d'autres organisations, ou par l'intermédiaire de cookies et de technologies similaires qui sont intégrés dans les propriétés numériques d'autres organisations au profit du CIO.</p>
+
+                <p>D’autres organisations peuvent lancer et exploiter des sites Web, lettres d’information, plateformes de commerce électronique ou d'autres services (a) en lien avec les activités des Jeux Olympiques, des Jeux olympiques de la Jeunesse ou du Mouvement olympique ou (b) comprenant du contenu en lien avec l'olympisme. Ces sites et services sont exploités indépendamment du CIO et ne sont pas couverts par la présente Politique de confidentialité. Nous vous encourageons donc à lire les conditions d'utilisation et les politiques de confidentialité applicables à ces sites et services. Si nous recueillons des données à caractère personnel par l’intermédiaire de ces services, cela sera précisé dans la politique de confidentialité et/ou les conditions d’utilisation du site ou du propriétaire des services.</p>
+                <p><strong>MISE À JOUR DE LA POLITIQUE DE CONFIDENTIALITÉ : Dernière mise à jour de la présente Politique de confidentialité datée du 12 mars 2024. Cette mise à jour a été effectuée pour y intégrer les modifications importantes suivantes :</strong></p>
+
+                <ul>
+                    <li><strong>Pour vous offrir une expérience plus agréable en relation avec les Jeux olympiques d'hiver de Milano Cortina 2026, nous avons apporté des modifications à la procédure d'inscription et de connexion à votre compte. Vous pourrez utiliser les mêmes informations d'identification pour créer et accéder à votre compte utilisateur sur les plateformes gérées par MiCo 2026, ainsi que sur les plateformes gérées par le CIO. "MiCo 2026" fait référence au Comité d'organisation des Jeux Olympiques et Paralympiques</strong> <strong>de Milano Cortina en 2026.</strong></li>
+                </ul>
+
+                <p><strong>Afin de gérer votre compte d'utilisateur, MiCo 2026 et le CIO auront tous deux accès aux données à caractère personnel que vous fournissez lors de l'inscription ou de la connexion à votre compte sur leurs plateformes respectives, et seront responsables de leur protection. Pour en savoir plus, veuillez consulter l'Annexe 3 de la présente Politique de confidentialité. MiCo 2026 et le CIO sont par ailleurs individuellement responsables des données à caractère personnel recueillies par le biais des plateformes qu'ils gèrent.</strong></p>
+
+                <p><strong>Vous pouvez contacter le CIO depuis le</strong> <a href="https://privacyportal-eu.onetrust.com/webform/22395098-025a-4a86-b716-763ae9c9a4cf/787ca7a8-5c45-45f9-9c4d-29ef9d88bb1d"><strong>portail dédié du CIO</strong></a> <strong>pour exercer vos droits en matière de protection des données.</strong> <strong>Vous pouvez également contacter MiCo 2026 directement à l'adresse</strong> <a href="mailto:privacy@milanocortina2026.org"><strong>privacy@milanocortina2026.org</strong></a><strong>.</strong></p>
+
+                <ul>
+                    <li><p><strong>La présente Politique de confidentialité a également été mise à jour pour vous informer que le CIO partagera vos données à caractère personnel avec</strong> <strong>MiCo 2026</strong> <strong>si vous avez donné au CIO votre consentement pour recevoir des communications marketing de la part de</strong> <strong>MiCo 2026</strong>.</p></li>
+                    <li><p><strong>De plus, si vous avez créé un compte sur les plateformes gérées par</strong> <strong>MiCo 2026, nous serons susceptibles de partager avec MiCo 2026 les données que nous recueillons à votre sujet lors de vos interactions avec nos Services.</strong> <strong>MiCo 2026 traite indépendamment les données qu'il reçoit, et ce, à ses propres fins de marketing.</strong></p></li>
+                </ul>
+                <h3><strong>Qui sommes-nous ?</strong></h3>
+
+                <p>Dans les présentes, toute référence à "<strong>nous</strong>" "<strong>notre</strong>" ou "<strong>nos</strong>" désigne le CIO, mais également la Fondation Olympique pour la Culture et le Patrimoine (la "<strong>Fondation</strong>") et les Comités d'organisation des Jeux Olympiques et paralympiques (les "<strong>COJO</strong>"), si le CIO traite des données avec ces organisations. Les annexes 2 et 3, dans leur version mise à jour, le cas échéant, apportent des précisions quant à cette distinction.</p>
+
+                <p>Le CIO est une organisation internationale privée à but non lucratif, reconnue d’intérêt public par les autorités suisses et constituée sous la forme d’une association de droit suisse, dont le siège social dit Maison Olympique (Olympic House) est sis 1007 Lausanne, Suisse. La mission du CIO consiste à promouvoir l’olympisme partout dans le monde, à diriger le Mouvement olympique et à assurer la célébration régulière des Jeux Olympiques. Pour en savoir plus sur le CIO, ses objectifs et activités, veuillez consulter la <a href="https://olympics.com/en/cookie-policy">Charte Olympique</a> et les <a href="https://olympics.com/ioc/principles">Principes du CIO</a>.</p>
+
+                <p>La Fondation gère le Musée Olympique et le Centre d’Études Olympiques à Lausanne, en Suisse.</p>
+
+                <p>Chaque COJO est responsable de l'organisation des Jeux Olympiques et des Jeux Paralympiques. Chaque COJO a son siège sur le territoire où se dérouleront ses Jeux olympiques et paralympiques.</p>
+
+                <p>Toute référence à "<strong>vous</strong>", "<strong>votre</strong>" ou "vos" désigne les personnes dont nous recueillons les données dans le cadre des Services ou dont nous recevons les données d'autres organisations avec lesquelles nous collaborons.</p>
+
+                <h3><strong>Notre rôle dans le traitement des données à caractère personnel</strong></h3>
+
+                <h4>1. <strong>Données recueillies dans le cadre des Services</strong></h4>
+
+                <p>Le CIO est le responsable du traitement des données recueillies dans le cadre des Services, <strong>sauf</strong> :</p>
+
+                <ul>
+                    <li><p>mention contraire des informations relatives à la confidentialité (qui incluent les informations concernant les cookies) fournies en lien avec les Services ;  </p></li>
+                    <li><p>si les Services sont liés au Musée Olympique (en particulier <a href="https://olympics.com/museum">https://olympics.com/museum</a>, <a href="https://museumshop.olympics.com/">https://museumshop.olympics.com</a>), au Centre d’Études Olympiques (en particulier <a href="https://olympics.com/ioc/olympic-studies-centre">https://olympics.com/ioc/olympic-studies-centre</a>, <a href="https://library.olympics.com/">https://library.olympics.com/</a>) et à d'autres activités de la Fondation. Dans ce cas, vos données à caractère personnel seront traitées par le CIO et la Fondation, aux fins détaillées à l'annexe 2, en leur qualité de co-responsables du traitement des données ; ou</p></li>
+                    <li><p>si le CIO est engagé dans des activités numériques avec d'autres organisations au sein du Mouvement olympique, telles que les COJO. Dans ce cas, l'annexe 3 de la présente Politique de confidentialité (ou les informations relatives à la confidentialité présentées au moment du recueil des données) détaille le contrôle exercé par chaque organisation sur les données concernées.</p></li>
+                </ul>
+
+                <h4>2. <strong>Données recueillies par l'intermédiaire de sites et services tiers</strong></h4>
+
+                <p>Lorsque le CIO reçoit des informations recueillies par d'autres organisations, le CIO est responsable du traitement des données qu'il reçoit. Cela s'applique aux données à caractère personnel recueillies par le biais de sites Web et d'autres services numériques détenus ou exploités par :</p>
+
+                <ul>
+                    <li>chaque COJO (y compris le Comité d'organisation des Jeux Olympiques et Paralympiques de Paris 2024 ("<strong>Paris 2024</strong>") et le Comité d'organisation des Jeux Olympiques et Paralympiques de Milano Cortina 2026 ("<strong>MiCo 2026</strong>")), et</li>
+                    <li>d'autres organisations commerciales autorisées à vendre et à promouvoir des services numériques sur le thème olympique ou à utiliser les Propriétés olympiques.</li>
+                </ul>
+
+                <p>Voir le paragraphe 3 "<strong>Recueil de données par l'intermédiaire de tiers</strong>" dans la partie "<strong>Quelles informations recueillons-nous ?</strong>" (ci-dessous) ainsi que l'Annexe 3 pour en savoir plus.</p>
+                <h3><strong>Quelles informations recueillons-nous ?</strong></h3>
+
+                <h4>1. <strong>Les informations que vous nous fournissez</strong></h4>
+
+                <p>Vous nous fournissez des informations, y compris des données à caractère personnel, quand vous utilisez les Services. Notamment, lors de votre inscription aux Services et de la création de votre compte d'utilisateur, pour toute communication avec nous, demande ou utilisation d'un service ou de toute autre initiative que nous proposons, ou autre interaction avec ces derniers, pour la réalisation de certaines transactions ou la souscription aux Services B2B ou aux Services B2C, aux communications promotionnelles ou aux alertes médias. Le terme "<strong>Services B2B</strong>" désigne les ressources commerciales et les Services professionnels proposés en ligne. Le terme "<strong>Services B2C</strong>" désigne les services de communication et d'informations.</p>
+
+                <h4>a) <strong>Données d'enregistrement</strong></h4>
+
+                <p>La création d'un compte d'utilisateur n'est pas toujours nécessaire pour accéder à notre contenu. Toutefois, certains services professionnels, ressources commerciales et services d’inscription à des événements, ainsi que certaines options de personnalisation, transactions, fonctionnalités ou activités (ex. : jeux, concours, loteries, lettres d’information et commerce électronique…) proposés par l'intermédiaire de nos Services nécessitent que vous vous inscriviez auprès de nous et nous fournissiez certaines données à caractère personnel.</p>
+
+                <p>L’inscription est régie par les conditions d’utilisation disponibles sur <a href="https://olympics.com/en/terms-of-service">https://olympics.com/fr/terms-of-service</a> , ainsi que par les conditions supplémentaires applicables qui s'affichent lors de vos interactions avec les Services (ces conditions sont dénommées collectivement ci-après les "<strong>Conditions d’utilisation</strong>").</p>
+
+                <p>Si vous créez un compte utilisateur, il vous sera demandé de fournir des données à caractère personnel, telles que votre adresse électronique, votre lieu de résidence, votre âge et votre mot de passe. Vous pouvez utiliser ce même compte pour l'ensemble des Services, même si les comptes utilisateur pour les Services B2B diffèrent de ceux créés pour nos Services B2C. Certains Services, comme Athlete365 (<a href="https://olympics.com/athlete365/">https://www.olympic.org/athlete365/fr/</a>), sont destinés aux athlètes et nous vous demanderons de nous fournir des informations sur les sports que vous pratiquez, votre équipe ou votre participation aux Jeux Olympiques ou aux Jeux Olympiques de la Jeunesse.</p>
+
+                <h5><strong><em>Création de compte sur le site Olympics.com et sur l'application mobile associée</em></strong></h5>
+
+                <p>Les particuliers, par exemple les supporters, peuvent créer un compte sur le site Olympics.com et sur l'application mobile associée. Si vous créez ce type de compte, nous collecterons les données à caractère personnel que vous nous fournissez, ainsi que les informations générées automatiquement lors du processus d'inscription en ligne (plus particulièrement, les données générées par les cookies et les technologies similaires). Ces données à caractère personnel incluent généralement votre adresse électronique, votre lieu de résidence, votre âge, votre mot de passe, votre acceptation des conditions et votre identifiant unique, et peuvent également inclure d'autres informations, telles que votre code postal, vos favoris et tout consentement que vous donnez pour recevoir des communications marketing.</p>
+
+                <p>Nous traiterons ces données à caractère personnel à des fins de gestion de votre compte, notamment en rapport avec l'identité et l'accès de votre compte, pour l'envoi de communications marketing et à d'autres fins commerciales (telles que la création de profils d'utilisateur ou encore la constitution et le ciblage d'audiences).</p>
+
+                <p>Lors de la création d'un tel compte via la section "Jeux Olympiques de Paris 2024" du site Olympics.com, ou via l'application mobile associée et dédiée aux Jeux Olympiques et Paralympiques de Paris 2024, Paris 2024 et le CIO traiteront vos données à caractère personnel (i) conjointement et à des fins de gestion de votre compte et (ii) indépendamment pour l'envoi de communications marketing et à d'autres fins commerciales (telles que la création de profils d'utilisateur ou encore la constitution et le ciblage d'audiences).</p>
+
+                <h4>b) <strong>Données nécessaires pour vous fournir certains Services</strong></h4>
+
+                <p>Certains Services nécessitent que vous nous fournissiez des informations vous concernant. C’est le cas, par exemple :</p>
+
+                <ul>
+                    <li>des Services B2B que nous mettons à la disposition d’autres acteurs du Mouvement olympique ; ou</li>
+                    <li>des Services qui vous donnent la possibilité de vous inscrire ou de demander une accréditation pour les Jeux Olympiques, les Jeux Olympiques de la Jeunesse ou d’autres événements que nous organisons, ou pour réserver des voyages et hébergements liés à ces événements.</li>
+                </ul>
+
+                <p>Il vous faudra peut-être également fournir certaines informations pour utiliser les Services qui vous permettent de participer à des jeux, concours, loteries ou de bénéficier de nos produits ou services, ou d'autres activités destinées aux supporters.</p>
+
+                <p>Selon le cas et si nécessaire, nous vous informerons plus précisément des informations dont nous avons besoin pour vous fournir les produits ou services que vous avez demandés, ainsi que de toutes les autres conditions applicables au traitement des données à caractère personnel fournies. Les informations nécessaires varieront selon la nature des Services. Elles peuvent inclure des informations telles que : prénom, nom de famille, organisation commerciale, fonction, adresse physique, numéro de téléphone, nationalité, détails de voyage et d’hébergement, numéro de carte d’identité ou de passeport, informations de carte de crédit, informations de taille et de poids, taille des vêtements et chaussures, allergies et habitudes alimentaires.</p>
+
+                <h4>c) <strong>Données de communication</strong></h4>
+
+                <p>Si vous communiquez avec nous et/ou nous demandez des informations ou des services, nous utiliserons les informations de votre compte et les autres informations que vous nous aurez fournies (comme une adresse électronique, un numéro de téléphone et toute autre information que vous nous aurez confiée) pour répondre à vos requêtes.</p>
+
+                <h4>2. <strong>Informations recueillies par l'intermédiaire de cookies et de technologies similaires</strong></h4>
+
+                <p>Nous utilisons des mécanismes de suivi automatique comme les cookies et des technologies similaires pour recueillir certaines données lorsque vous parcourez nos Services ou lorsque vous consultez les sites ou services d'autres organisations avec lesquelles nous collaborons. Un cookie est un petit fichier stocké sur votre navigateur ou sur le disque dur de votre ordinateur, utilisé pour recueillir des informations sur vos interactions avec les sites Web et d'autres propriétés numériques. Par exemple, des informations sur votre appareil (type de navigateur, système d’exploitation, langue, identifiant unique), les connexions à des réseaux (fournisseur d'accès à Internet, adresse IP, fuseau horaire), l'historique de navigation (date et heure, pages consultées), ainsi que la localisation générale comme votre ville et votre pays.</p>
+
+                <p>Vous pouvez désactiver les cookies (à l'exception de ceux qui sont strictement nécessaires) ou les gérer dans vos paramètres de cookies disponibles sur chaque site Web ou propriété numérique par le biais desquels ils sont définis. Vous pouvez également gérer les cookies en configurant les fonctionnalités de votre navigateur Internet.</p>
+
+                <p>Pour en savoir plus sur notre utilisation des cookies dans le cadre des Services et sur la gestion de votre consentement, consultez notre Politique relative aux cookies à l'adresse <a href="mailto:privacy@olympic.org">https://olympics.com/fr/cookie-policy</a>. Lorsque nos cookies sont intégrés à des sites ou services tiers, vous devez consulter leur politique d'utilisation des cookies et leurs outils de gestion du consentement.</p>
+
+                <h4>3. <strong>Recueil de données par l’intermédiaire de tiers</strong></h4>
+
+                <p>Vous pouvez vous inscrire auprès de nous en utilisant les informations d’un compte que vous détenez déjà chez un tiers comme Facebook, Google, X et Apple. Si vous choisissez cette option, vous autorisez ces organisations à nous fournir certaines des données à caractère personnel qu’ils détiennent vous concernant, afin que nous puissions les utiliser pour créer votre compte utilisateur. Ces informations dépendront des services tiers utilisés pour vous inscrire auprès de nous et de la portée des informations que vous leur avez transmises, mais il s'agit généralement de votre prénom et votre nom, votre nom d’utilisateur, votre numéro de téléphone, votre identifiant unique et vos jetons d’accès, votre adresse électronique, votre date de naissance et vos préférences (par exemple, vos pages favorites ou sauvegardées).</p>
+
+                <p>Dans certains cas, nous autorisons des tiers à lancer et à exploiter des services numériques sur le thème olympique et à utiliser nos Propriétés olympiques sur leurs sites Web, ou dans le cadre d'autres services numériques. Par exemple, la boutique olympique exploitée par Fanatics, Inc. et ses sociétés affiliées avec l'autorisation du CIO et des COJO (voir, par exemple, la version européenne de la boutique olympique ici <a href="https://shop.olympics.com/en/">https://shop.olympics.com/fr/</a>). Ces tiers peuvent nous communiquer des informations qu'ils recueillent à votre sujet, par exemple votre prénom et votre nom ou votre identifiant unique, votre adresse électronique, les préférences marketing que vous avez définies et les données relatives aux pages Web que vous visitez et aux produits et services de marque olympique que vous achetez et utilisez. Dans ces cas-là, le partage d'informations avec nous sera précisé dans les politiques de confidentialité et d'utilisation des cookies émises par ces tiers, et sera effectué conformément à ces dernières.</p>
+
+                <p>Les COJO, notamment Paris 2024 et MiCo 2026, partagent les données à caractère personnel de leurs utilisateurs avec le CIO. Dans ces cas-là, ce partage des données à caractère personnel avec le CIO sera précisé dans les politiques de confidentialité et d'utilisation des cookies émises par chacun des COJO concernés et effectué conformément à ces dernières.</p>
+
+                <h4>4. I<strong>Informations manifestement rendues publiques</strong></h4>
+
+                <p>Le contenu offert sur nos Services peut inclure des informations manifestement rendues publiques comme les compétitions et résultats, les biographies d’athlètes olympiques ou autres, d’entraîneurs et d’autres personnes impliquées dans les Jeux Olympiques, les Jeux Olympiques de la Jeunesse et autres compétitions sportives majeures, qui présentent un intérêt et dont l’histoire contribue à la mission du CIO et du Mouvement olympique. Ces informations ont été divulguées par les athlètes et autres personnes concernées dans le contexte de leur participation aux Jeux Olympiques, aux Jeux Olympiques de la Jeunesse et autres compétitions sportives, lors d’interviews et d’autres événements médiatiques, dans des publications des médias ou par d’autres moyens et nous les avons compilées en coopération avec les fédérations internationales, les comités nationaux olympiques, les comités d’organisation des Jeux Olympiques et des Jeux Olympiques de la Jeunesse et d’autres acteurs du Mouvement olympique.</p>
+                <h3><strong>Comment utilisons-nous les informations que nous recueillons ?</strong></h3>
+                <p>Nous utilisons les informations que nous recueillons vous concernant et concernant votre utilisation des Services et, le cas échéant, votre utilisation de sites et services tiers pour :</p>
+
+                <p>a) faciliter votre utilisation des Services, permettre votre inscription et votre authentification, ainsi que pour gérer votre compte utilisateur ;</p>
+
+                <p>b) maintenir et développer les Services ;</p>
+
+                <p>c) collecter des statistiques pour aider à diagnostiquer les problèmes, améliorer votre expérience des Services et améliorer la qualité des Services ;</p>
+
+                <p>d) assurer la sécurité des Services et veiller à ce que les Services soient utilisés conformément à nos Conditions d’utilisation et aux lois en vigueur ;</p>
+
+                <p>e) effectuer des analyses des supporters et de l'audience, et d'autres activités marketing. Nous analysons vos interactions avec nos Services (notamment les communications que nous vous adressons) et avec des publicités, des services et des sites tiers (lorsque leurs conditions d’utilisation et leurs politiques de confidentialité le permettent). Cela nous permet de comprendre votre profil, vos intérêts et votre activité de navigation en ligne. Lors de l'établissement de profils d'utilisateurs, nous sommes également susceptibles d'associer les données que nous recueillons à votre sujet à celles que nous recevons d'autres organisations. Les données que nous acquérons peuvent potentiellement nous permettre d'analyser ou de prédire certains aspects de votre situation personnelle, tels que vos préférences et intérêts, et ces informations sont susceptibles d'être ajoutées au profil que nous détenons à votre sujet. Pour en savoir plus sur les données que nous recevons de tiers, consultez le paragraphe ci-dessus intitulé "<strong>Recueil de données par l'intermédiaire de tiers</strong>" ; En comprenant mieux nos utilisateurs, nous pouvons constituer des audiences pour nos campagnes qui vous incluent ou qui incluent des personnes ayant un profil similaire au vôtre, et diffuser des publicités pertinentes et d'autres contenus (y compris des communications marketing) à ces audiences via nos Services ou des plateformes gérées par d'autres organisations.</p>
+
+                <p>f) vous permettre de participer à des jeux, concours, loteries ou autres activités destinées aux supporters mises à disposition par l’intermédiaire des Services ou d'autres organisations avec lesquelles nous collaborons, et à des fins d'administration de ces initiatives (évaluation et confirmation de l'éligibilité des participants, attribution de prix aux gagnants, etc.) ;</p>
+
+                <p>g) vous fournir des produits, des services, des informations ou des contenus que vous avez demandés ;</p>
+
+                <p>h) communiquer avec vous, en répondant à vos questions et requêtes, en vous envoyant des communications en lien avec votre compte utilisateur et nos Conditions d’utilisation et, si vous avez opté pour ce service ou remplissez les conditions légales pour le recevoir, vous envoyer des communications promotionnelles (par courrier électronique et autres voies électroniques) sur les Services, nos activités et les activités du Mouvement olympique et ses partenaires, tout en vous offrant la possibilité de retirer votre consentement à ces communications à tout moment ; et</p>
+
+                <p>i) montrer des publicités et en mesurer la portée sur les Services et sur des services tiers comme Google, Facebook, YouTube et X et sur les sites et services d'autres organisations avec lesquelles nous collaborons. Si vous utilisez des sites et services tiers mentionnés dans le présent paragraphe (i) ainsi que nos Services, nous sommes susceptibles, en communiquant des informations à ces tiers, de vous proposer des publicités à vous ou à des personnes ayant un profil similaire au vôtre via leurs sites et services.</p>
+                <h3><strong>À qui communiquons-nous vos données ?</strong></h3>
+
+                <h4>1. <strong>Informations rendues publiques</strong></h4>
+
+                <p>Nous mettons certaines données à caractère personnel à la disposition du public par l'intermédiaire des Services ou de sites et services tiers. Par exemple :</p>
+
+                <ul>
+                    <li>lorsque la nature des Services l'exige. Les services tels que les jeux, les concours ou les loteries en ligne peuvent impliquer la publication de données à caractère personnel, telles que des données de jeu dans des tableaux de classement ou les annonces des gagnants ; et</li>
+                    <li>lorsque les Services comprennent des actualités et d'autres contenus éditoriaux sur la biographie et les résultats des compétitions sportives des athlètes olympiques, des autres athlètes, des entraîneurs ou d'autres personnes dont les activités s'inscrivent dans la mission du CIO.</li>
+                </ul>
+
+                <h4>2. <strong>Le CIO, la Fondation et les COJO</strong></h4>
+
+                <p>Les Services sont fournis par le CIO et, le cas échéant, par la Fondation. Nous partageons vos données à caractère personnel aux fins exposées dans les présentes. L'annexe 2 de la présente Politique de confidentialité fournit de plus amples détails sur la manière dont le CIO et la Fondation collaborent pour traiter vos données à caractère personnel.</p>
+
+                <p>Si la présente Politique de confidentialité l'indique expressément, nous partagerons vos données à caractère personnel avec les COJO. Cela inclut les données à caractère personnel recueillies par l'intermédiaire des Services (par exemple, lorsque vous vous abonnez pour recevoir des communications promotionnelles des COJO) ou par d'autres organisations avec lesquelles nous collaborons.</p>
+
+                <p>L'annexe 3 de la présente Politique de confidentialité fournit de plus amples informations sur ces COJO, sur la manière dont nous leur communiquons des données à caractère personnel et les fins auxquelles nous utilisons ces données.</p>
+
+                <h4>3. <strong>Nos prestataires de services</strong></h4>
+
+                <p>Nous nous appuyons sur un réseau de prestataires de services professionnels qui travaillent pour nous et nous aident à exploiter, développer, sécuriser, promouvoir et mesurer les Services et nos publicités. Les Services fournis par ces partenaires incluent :</p>
+
+                <p>a) l'infrastructure des données client, des services de développement des plateformes et des services informatiques généraux ;</p>
+
+                <p>b) des services d'hébergement ;</p>
+
+                <p>c) des services basés sur le cloud pour la gestion de l’identité du client et des accès ;</p>
+
+                <p>d) des services client, des services de gestion de la relation client et d'autres services de communication et de marketing, comme la ludification ;</p>
+
+                <p>e) des services d’analyse et de mesure de la publicité et de l’audience ;</p>
+
+                <p>f) des services de communication par courrier électronique et de notifications push ;</p>
+
+                <p>g) des services Web et de réseaux sociaux tiers, sur lesquels nous plaçons de la publicité ; et</p>
+
+                <p>h) des services de gestion des demandes d’accès d’utilisateurs et des consentements aux cookies.</p>
+
+                <p>Ces organisations traiteront vos données à caractère personnel afin de nous fournir ces services. Ces prestataires de services sont liés par des obligations de confidentialité strictes. Ils conserveront et utiliseront ces données à caractère personnel tant qu'ils travailleront pour nous ou jusqu'à ce que vous décidiez de supprimer votre compte ou de ne plus bénéficier des Services. Une liste de nos principaux prestataires de services (y compris leurs coordonnées) est fournie en Annexe 1 de la présente Politique de confidentialité.</p>
+
+                <p>Dans certains cas, les organisations avec lesquelles nous travaillons peuvent agir en qualité de responsables du traitement de vos données à caractère personnel. Par exemple, les tiers qui nous aident à proposer des publicités et ceux que nous autorisons à lancer et à exploiter des services numériques sur le thème olympique et à utiliser nos marques. Ces tiers obéissent à leurs propres conditions d’utilisation et politiques de confidentialité, que nous vous recommandons vivement de lire.</p>
+
+                <h4>4. <strong>Services liés à des événements, concours, loteries et autres services</strong></h4>
+
+                <p>Nos Services peuvent être utilisés pour participer à des jeux, des concours, des loteries et d'autres activités destinées aux supporters, ou pour demander une inscription ou une accréditation pour assister aux Jeux Olympiques ou à d’autres événements que nous organisons, ou pour réserver des voyages et des hébergements liés à ces événements et services.</p>
+
+                <p>Dans certaines situations, la fourniture des services que vous demandez peut nécessiter que nous partagions des données à caractère personnel vous concernant avec des tiers (p. ex. Carlson Wagonlit Travel et autres prestataires de voyage ou d’hébergement, comités d’organisation ou autorités publiques…). Nous sommes également susceptibles de communiquer vos informations à des tiers lorsque certains Services comme des jeux, des concours, des loteries ou d'autres activités destinées aux supporters que nous vous proposons sont mis à disposition sur des sites et par des services tiers, ou lorsque nous collaborons avec un tiers pour l'attribution des prix.</p>
+
+                <p>D’autres services que vous pouvez nous demander peuvent aussi nécessiter que nous partagions vos informations avec des tiers qui nous aident à délivrer lesdits services, comme des entités du Mouvement olympique (fédérations internationales, comités nationaux olympiques ou COJO), des institutions universitaires ou d'autres partenaires de prestation. Nous préciserons, dans les Conditions d’utilisation concernées ou autrement, les catégories de tiers auxquels vos données à caractère personnel sont susceptibles d’être communiquées, ainsi que les autres conditions applicables dudit partage d’informations en lien avec les Services demandés.</p>
+
+                <h4>5. <strong>Offres et services de nos partenaires</strong></h4>
+
+                <p>Nous vous offrirons ponctuellement la possibilité de recevoir des services et des communications (notamment des communications liées à des produits et services) de la part de tiers que nous avons sélectionnés, comme nos partenaires commerciaux et des membres du Mouvement olympique. Si vous choisissez de vous inscrire à ces services ou communications (ou si vous pouvez légalement recevoir des communications de leur part), nous communiquerons vos données à caractère personnel à ces organisations.</p>
+
+                <p>Avec votre consentement, nous pourrons transférer votre adresse électronique au Comité international paralympique ("<strong>CIP</strong>") à des fins de communications promotionnelles sur les Jeux Paralympiques, le Mouvement Paralympique et les initiatives associées des partenaires du CIP. Le CIP traitera vos données à caractère personnel en tant que responsable distinct du traitement des données si vous décidez de vous abonner à ses communications promotionnelles. Si vous souhaitez ne plus recevoir ses communications promotionnelles, veuillez contacter le CIP directement.</p>
+
+                <h4>6. <strong>Transmission à des fins légales</strong></h4>
+
+                <p>Nous nous réservons le droit de divulguer les données à caractère personnel vous concernant si nous y sommes tenus par le droit ou en vertu de toute procédure judiciaire ou administrative, ainsi que dans la mesure nécessaire à toute investigation, prévention ou mesure concernant des activités illégales ou la violation de nos Conditions d’utilisation.</p>
+                <h3><strong>Comment protégeons-nous vos données à caractère personnel ?</strong></h3>
+
+                <h4>1. <strong>Sécurité des données</strong></h4>
+
+                <p>Nous mettons en œuvre des mesures techniques et organisationnelles afin de protéger vos données à caractère personnel contre les risques de dommages, de destruction, de perte ou d’accès non autorisé, en conformité avec les lois et réglementations en vigueur.</p>
+
+                <h4>2. <strong>Transfert international</strong></h4>
+
+                <p>Nous pouvons traiter vos données à caractère personnel dans un autre territoire que celui de votre lieu de résidence. Nous appliquons les mesures requises par la législation applicable de sorte que vos données bénéficient de la protection appropriée.</p>
+
+                <p>Les données que nous recueillons sont généralement traitées dans l’Union européenne ou en Suisse (qui fournit un niveau de protection équivalent à celui de l’Espace économique européen conformément à la décision de la Commission du 26 juillet 2000). Nous pouvons également être amenés à transférer vos données à des tiers aux fins et selon les bases juridiques de traitement mentionnées dans les présentes (voir ci-avant la partie intitulée "<strong>À qui communiquons-nous vos données ?"</strong>). Certains de ces tiers peuvent être basés dans des pays comme les États-Unis d’Amérique, dont les lois n’assurent pas une protection de vos données équivalente à celle offerte par la réglementation en vigueur au sein de l’Union européenne et en Suisse. Nous appliquons les mesures requises par la législation applicable de sorte que vos données bénéficient de la protection appropriée.  Avant de transférer des données de la Suisse ou de l'Union européenne vers d'autres pays, nous nous assurons de mettre en œuvre des mécanismes de protection reconnus par les autorités suisses et européennes, tels que des clauses contractuelles types.</p>
+
+                <h4>3. <strong>Limite d’âge</strong></h4>
+
+                <p>Les utilisateurs n'ayant pas l'âge légal pour bénéficier de mesures de protection des données ou de nos services (selon les lois de leur territoire de résidence) doivent obtenir le consentement de leurs parents ou de leur tuteur légal avant d'utiliser nos services, et le CIO se réserve le droit de demander la preuve de ce consentement et/ou de l'âge de l'utilisateur à tout moment en cas de doute. Pour en savoir plus sur nos exigences relatives à l'âge à des fins de protection des données, suivez ce lien : <a href="https://olympics.com/en/age-consent">https://olympics.com/en/age-consent</a>. Si vous apprenez que votre enfant nous a communiqué des données à caractère personnel sans votre accord, merci de bien vouloir nous contacter.</p>
+
+                <h4>4. <strong>Conservation des données</strong></h4>
+
+                <p>Nous conserverons vos données à caractère personnel uniquement pour la durée nécessaire aux finalités énoncées dans les présentes ou au respect de nos exigences légales.</p>
+
+                <p>Si vos données à caractère personnel ont été recueillies par le biais d'une partie du site Olympics.com ou de l’application mobile associée dédiée à une édition spécifique des Jeux et, si cela est nécessaire pour assurer sa mission à long terme de promotion du Mouvement olympique, de préservation du patrimoine des Jeux et de maintien des activités destinées aux utilisateurs, le CIO peut continuer à traiter ces données à caractère personnel après que le COJO concerné (par exemple, le Comité d'organisation des Jeux Olympiques et Paralympiques de Tokyo établi par le gouvernement métropolitain de Tokyo et le Comité Olympique japonais) a cessé d’effectuer son propre traitement de données. Le CIO continuera à traiter vos données à caractère personnel conformément à la présente Politique de confidentialité.</p>
+                <h3><strong>Base juridique du traitement de vos données à caractère personnel et vos droits</strong></h3>
+
+                <p>Nous traitons principalement vos informations pour respecter nos obligations en vertu des Conditions d’utilisation mais, dans certains cas, nous nous appuyons également sur d’autres bases juridiques détaillées ci-après.</p>
+
+                <p>Veuillez noter toutefois que nous adaptons la base juridique de notre traitement si les lois de la juridiction dans laquelle vous résidez nous y obligent. Par exemple, dans les territoires où nous devons recourir à une base juridique autre que celle décrite dans la présente partie, votre acceptation de la présente Politique de confidentialité constitue votre consentement aux activités de traitement des données décrites dans les présentes.</p>
+
+                <h4>1. <strong>Nécessité contractuelle</strong></h4>
+
+                <p>La nécessité contractuelle s’applique à tous les utilisateurs qui acceptent nos Conditions d’utilisation et justifie les utilisations suivantes des données à caractère personnel des utilisateurs :</p>
+
+                <p>
+                    a) La fourniture des Services.<br>
+                    b) La possibilité pour vous de participer à des jeux, des concours, des loteries et d'autres activités destinées aux supporters éventuellement mises à disposition par l’intermédiaire des Services.<br>
+                    c) La gestion des inscriptions et des comptes utilisateur.<br>
+                    d) La sécurisation et le développement des Services.<br>
+                    e) La communication avec vous dans le cadre des Services.<br>
+                    f) La fourniture des produits, services, informations ou contenus que vous avez demandés.<br>
+                    g) Le partage de données avec nos partenaires qui peuvent vous fournir leurs services.<br>
+                    h) Le transfert, le stockage ou le traitement de vos données en-dehors de la Suisse ou de l’Union européenne, y compris aux États-Unis d'Amérique ou dans d’autres pays.<br>
+                    i) La fourniture d’accréditation, d’hébergement, de transport et d’autres services ou informations que vous nous avez demandés.
+                </p>
+
+                <p>Dans ces différents cas, vous avez le droit à la portabilité de vos données.</p>
+
+                <h4>2. <strong>Consentement</strong></h4>
+
+                <p>Nous sommes également susceptibles de traiter certaines données avec votre consentement, que vous êtes libre de retirer à tout moment, dans le cadre des activités suivantes :  </p>
+
+                <p>a) L'envoi de communications marketing, y compris par voie numérique, lorsque votre consentement est nécessaire.</p>
+
+                <p>b) Le placement de cookies, à la fois par le biais de nos Services et de certains sites et services tiers, lorsque votre consentement est nécessaire.</p>
+
+                <p>Dans ce cas, vous avez le droit à la portabilité de vos données et au retrait de votre consentement.</p>
+
+                <h4>3. <strong>Intérêts légitimes</strong></h4>
+
+                <p>Nous nous appuyons également sur nos intérêts légitimes afin de fournir des Service sécurisés, efficaces et conformes à nos Conditions d’utilisation, de façon à ce que nos visiteurs, partenaires et supporters bénéficient de Services de qualité et profitent de contenus liés à l’Olympisme correspondant à leurs centres d'intérêt. Nos intérêts légitimes constituent une base juridique pour les activités suivantes :</p>
+
+                <p>a) La mise à disposition, grâce aux Services, d’informations accessibles au public en relation avec les Jeux Olympiques, les Jeux Olympiques de la Jeunesse, les Olympiens et d'autres athlètes, le sport et les actualités.</p>
+
+                <p>b) La fourniture des Services et la personnalisation de votre expérience des Services grâce à l'adaptation de certaines fonctions à vos centres d'intérêt.</p>
+
+                <p>c) La gestion des inscriptions et des comptes utilisateur.</p>
+
+                <p>d) La sécurisation et le développement des Services.</p>
+
+                <p>e) La communication avec vous dans le cadre des Services.</p>
+
+                <p>f) La fourniture des produits, services, informations ou contenus que vous avez demandés.</p>
+
+                <p>g) Le transfert, le stockage ou le traitement de vos données en-dehors de la Suisse ou de l’Union européenne, y compris aux États-Unis d'Amérique et dans d’autres pays.</p>
+
+                <p>h) L'envoi de communications marketing, y compris par courrier électronique, si vous remplissez les conditions légales pour les recevoir, excepté dans les cas où votre consentement est requis par le droit et que la base juridique applicable pour l'envoi de telles communications marketing est ledit consentement.</p>
+
+                <p>i) La réalisation d'analyses sur les supporters et les audiences, l'établissement de profils d'utilisateurs, ainsi que la constitution et le ciblage d'audiences à des fins de marketing (vous, ainsi que les personnes ayant un profil similaire au vôtre, êtes inclus dans ces audiences). Lors de l'analyse sur les supporters et les audiences et de l'établissement de profils d'utilisateurs, nous combinons les données que nous collectons auprès des utilisateurs (par le biais de leurs interactions avec nos Services et les sites, services et publicités de tiers) avec les données que nous recevons d'autres organisations. Les données que nous acquérons peuvent potentiellement nous permettre d'analyser ou de prédire certains aspects de votre situation personnelle, tels que vos préférences et intérêts, et ces informations sont susceptibles d'être ajoutées au profil que nous détenons à votre sujet. Les profils d'utilisateurs que nous établissons sont utilisés pour constituer des audiences de campagne en fonction des caractéristiques, des préférences et des intérêts des utilisateurs, et pour cibler ces audiences par le biais de publicités et d'autres contenus pertinents. Dans le cadre de sa stratégie marketing pour la promotion à long terme du Mouvement olympique et la protection de son héritage, le CIO a un intérêt légitime à mieux comprendre et à trouver des moyens d'entrer en contact et de développer ses relations avec ses supporters actuels et potentiels.</p>
+
+                <p>j) L'évaluation de la performance des Services, ainsi que des sites et services de tiers.</p>
+
+                <p>k) La communication de données à d'autres organisations susceptibles de vous proposer et/ou vous fournir leurs services, et aux COJO qui peuvent utiliser ces données pour mieux comprendre leurs supporters, évaluer la performance des Services, personnaliser leurs services, produits et communications et, dans la mesure où la loi le permet, à des fins de prospection, notamment pour communiquer avec vous concernant leurs produits, services et partenaires</p>
+
+                <p>l) Le partage de vos informations avec des tiers, y compris les autorités d’application de la loi quand nous suspectons une activité illicite.</p>
+
+                <p>Dans ces cas, vous avez le droit de vous opposer au traitement de vos informations ou de nous demander de limiter ce traitement.</p>
+
+                <h4>4. <strong>Respect de nos obligations légales</strong></h4>
+
+                <p>Nous pouvons également invoquer nos obligations légales comme motif valable de partage de vos informations avec les autorités judiciaires ou d’application de la loi, si nous y sommes tenus par les lois applicables.</p>
+
+                <p>Dans ce cas, vous avez le droit de vous opposer au traitement de vos informations ou de nous demander de limiter ce traitement.</p>
+                <h3><strong>Vos droits et comment les exercer</strong></h3>
+
+                <h4>1. <strong>Vos droits</strong></h4>
+
+                <p>Vous pouvez exercer à notre égard vos droits d’accès, de rectification, de suppression et de portabilité de vos données à caractère personnel, de limitation et d’opposition à leur traitement, ainsi que votre droit à ne pas faire l’objet de décisions fondées uniquement sur le traitement automatisé de vos données à caractère personnel, le cas échéant. Vous avez aussi le droit de retirer votre consentement à tout moment. Nous pouvons vous demander de justifier de votre identité avant d’être en mesure de répondre à votre demande. Si vous résidez en dehors de l'Union européenne, vous pouvez également avoir des droits en vertu des lois applicables dans cette juridiction. Veuillez-vous reporter au paragraphe (d) de la partie 2 ("<strong>Comment exercer vos droits</strong>") (ci-dessous) pour nous contacter si vous avez des questions concernant l'exercice de ces droits. Nous nous réservons le droit de décliner une demande lorsque les conditions légales sont réunies et, notamment, lorsque la demande qui nous est faite est manifestement infondée ou excessive.</p>
+
+                <h4>2. <strong>Comment exercer vos droits</strong></h4>
+
+                <h5><strong>a) Détails du compte utilisateur</strong></h5>
+
+                <p>Pour accéder à vos données à caractère personnel ou les rectifier, veuillez-vous connecter au compte créé sur le site Olympics.com ou sur l'application mobile associée et modifier les paramètres pour y apporter les ajustements nécessaires.</p>
+
+                <h5>b) <strong>Se désabonner des communications marketing du CIO</strong></h5>
+
+                <p>Pour vous désabonner de nos communications marketing, vous pouvez ajuster les paramètres de votre compte utilisateur ou cliquer sur le lien affiché en bas de chacune de nos communications marketing.</p>
+
+                <h5>c) <strong>Demandes relatives à la billetterie</strong></h5>
+
+                <p>Si vous avez une demande concernant la billetterie, y compris la mise à jour des identifiants de connexion requis pour accéder à vos billets, veuillez contacter le COJO concerné.</p>
+
+                <h5>d) <strong>Nous contacter</strong></h5>
+
+                <p>Pour exercer vos droits en matière de protection des données ou ceux de vos enfants, ou pour toute question liée à la présente Politique de confidentialité, vous pouvez nous contacter depuis le <a href="https://privacyportal-eu.onetrust.com/webform/22395098-025a-4a86-b716-763ae9c9a4cf/787ca7a8-5c45-45f9-9c4d-29ef9d88bb1d">portail dédié du CIO</a> ou vous adresser à notre délégué à la protection des données.</p>
+
+                <h5>e) <strong>Délégué à la protection des données</strong></h5>
+
+                <p>
+                    Vous pouvez contacter notre délégué à la protection des données à l’adresse suivante :<br>
+                    Délégué à la protection des données<br>
+                    Comité Olympique International<br>
+                    Maison Olympique (Olympic House)<br>
+                    1007 Lausanne<br>
+                    Suisse
+                </p>
+
+                <p>Vous pouvez également utiliser le <a href="https://privacyportal-eu.onetrust.com/webform/22395098-025a-4a86-b716-763ae9c9a4cf/787ca7a8-5c45-45f9-9c4d-29ef9d88bb1d">portail dédié du CIO</a>.</p>
+
+                <h5>f) <strong>Renvoi vers une autorité de contrôle</strong></h5>
+
+                <p>Dans le cas où le règlement général sur la protection des données de l'UE (ci-après dénommé "<strong>RGPD</strong>") s'applique, vous avez le droit de déposer une réclamation auprès d'une autorité de contrôle de l'Union européenne, notamment dans le territoire où vous résidez, le lieu de travail ou le lieu où la violation a été commise. Si le règlement général sur la protection des données du Royaume-Uni s'applique, vous avez le droit de déposer une réclamation auprès du Bureau du commissaire à l'accès à l'information du Royaume-Uni. Dans les cas pour lesquels la loi fédérale sur la protection des données du 25 septembre 2020 est applicable, vous avez le droit de saisir le Préposé fédéral à la protection des données et à la transparence à Berne, en Suisse. Si d'autres lois s'appliquent, vous pouvez nous contacter conformément au paragraphe (d) ci-dessus pour déposer une réclamation.</p>
+
+                <h5>g) <strong>Représentant dans l’Union européenne</strong></h5>
+
+                <p>Le CIO a désigné Olympic Broadcasting Services S.L. Calle Torrelaguna 75, Madrid, Espagne comme son représentant dans l’Union européenne, conformément à l’article 27 du RGPD.</p>
+                <h3><strong>Environnements de tiers</strong></h3>
+
+                <p>Dans le cadre de la fourniture des Services, nous pouvons fournir ou mettre à disposition des liens externes dédiés vers des sites ou des environnements de tiers. Ces liens externes sont généralement présents sur certains de nos sites Web et notre application mobile, et vous redirigent vers les sites ou les environnements de certains de nos partenaires, tels que les fournisseurs de réseaux sociaux (par exemple, Snap Group Limited).</p>
+
+                <p>Vous comprenez et acceptez que nous ne sommes pas responsables de ces sites Web et environnements de tiers, y compris, mais sans s'y limiter, de leur contenu, des informations qu'ils contiennent et/ou de toute autre application qui y est incluse, étant donné qu'ils n'appartiennent pas à nos Services ou à l'écosystème numérique olympique. De plus, vous comprenez que vos données à caractère personnel peuvent être collectées par un tiers et/ou ses partenaires lorsque vous cliquez sur des liens externes vous redirigeant vers le site Web ou l'environnement de ce tiers. Nous ne sommes pas responsables de la collecte ou du traitement ultérieur de vos données à caractère personnel par un tiers et/ou ses partenaires lorsque vous cliquez sur des liens externes.</p>
+
+                <h3><strong>Modifications de la présente Politique de confidentialité</strong></h3>
+
+                <p>Si nous apportons des modifications à la présente Politique de confidentialité, nous actualiserons la date de "dernière mise à jour" indiquée ci-dessous, étant précisé que toute modification prendra effet dès sa publication. Dans le cas où ces modifications pourraient affecter vos droits en tant qu’utilisateur des Services ou lorsque la loi l’exige, nous vous en informons à l’avance, par exemple, en publiant un avis sur les Services ou en vous adressant une communication par courrier électronique, de façon à ce que vous puissiez consulter notre politique mise à jour et décider si vous continuez ou non à utiliser les Services. Votre utilisation des Services après la publication des modifications vaudra consentement à ces modifications, sauf si vous exercez vos droits tels que décrits dans la présente Politique de confidentialité. Nous vous encourageons à relire notre Politique de confidentialité régulièrement.</p>
+
+                <h3><strong>Dernière mise à jour de la présente Politique de confidentialité datée du 12 mars 2024.</strong></h3>
+
+                <p>Comité International Olympique, Maison Olympique (Olympic House), 1007 Lausanne, Suisse,</p>
+            </div>
+        </div>
+
+    </header><!-- End #header -->
+    <partial name="_Footer" />
+</body>
+</html>

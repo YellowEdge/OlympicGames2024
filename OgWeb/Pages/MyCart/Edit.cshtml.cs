@@ -16,6 +16,7 @@ using OgWeb.Models;
 
 namespace OgWeb.Pages.MyCart;
 
+[Authorize(Policy = "TwoFactorEnabled")]
 [Authorize(Roles = "admin,client")]
 [BindProperties]
 public class EditModel : CartDetailEventPageModel

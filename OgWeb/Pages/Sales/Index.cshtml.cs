@@ -5,6 +5,7 @@ using Newtonsoft.Json.Linq;
 
 namespace OgWeb.Pages.Sales;
 
+[Authorize(Policy = "TwoFactorEnabled")]
 [Authorize(Roles = "admin")]
 public class IndexModel : PageModel
 {

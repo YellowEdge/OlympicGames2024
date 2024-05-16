@@ -11,6 +11,7 @@ using OgWeb.Models;
 
 namespace OgWeb.Pages.Offers;
 
+[Authorize(Policy = "TwoFactorEnabled")]
 [Authorize(Roles = "admin")]
 public class IndexModel : PageModel
 {

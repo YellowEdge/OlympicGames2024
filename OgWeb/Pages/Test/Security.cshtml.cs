@@ -2,10 +2,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace OgWeb.Pages;
+namespace OgWeb.Pages.Test;
 
-[Authorize(Roles = "admin")]
-public class AdminModel : PageModel
+[Authorize(Policy = "TwoFactorEnabled")]
+[Authorize(Roles = "ticketcontrol")]
+
+public class SecurityModel : PageModel
 {
     public void OnGet()
     {

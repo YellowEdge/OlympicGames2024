@@ -12,7 +12,7 @@ using OgWeb.Data;
 namespace OgWeb.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240430102427_first")]
+    [Migration("20240516123338_first")]
     partial class first
     {
         /// <inheritdoc />
@@ -188,10 +188,14 @@ namespace OgWeb.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -221,6 +225,11 @@ namespace OgWeb.Migrations
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
+
+                    b.Property<string>("UserKey")
+                        .IsRequired()
+                        .HasMaxLength(36)
+                        .HasColumnType("nvarchar(36)");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
@@ -399,6 +408,11 @@ namespace OgWeb.Migrations
                         .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("TicketKey")
+                        .IsRequired()
+                        .HasMaxLength(80)
+                        .HasColumnType("nvarchar(80)");
 
                     b.Property<string>("UserId")
                         .IsRequired()

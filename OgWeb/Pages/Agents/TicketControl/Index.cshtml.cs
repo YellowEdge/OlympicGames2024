@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OgWeb.Pages.Agents.TicketControl;
 
+[Authorize(Policy = "TwoFactorEnabled")]
 [Authorize(Roles = "ticketcontrol")]
 public class IndexModel : PageModel
 {

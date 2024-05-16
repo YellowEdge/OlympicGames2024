@@ -12,6 +12,7 @@ using OgWeb.Models;
 
 namespace OgWeb.Pages.Offers;
 
+[Authorize(Policy = "TwoFactorEnabled")]
 [Authorize(Roles = "admin")]
 [BindProperties]
 public class EditModel : PageModel

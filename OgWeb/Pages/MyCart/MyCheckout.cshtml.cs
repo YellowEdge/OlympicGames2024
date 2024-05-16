@@ -8,6 +8,7 @@ using System.Text.Json.Nodes;
 
 namespace OgWeb.Pages.MyCart;
 
+[Authorize(Policy = "TwoFactorEnabled")]
 [Authorize(Roles = "admin,client")]
 //[IgnoreAntiforgeryToken]
 public class MyCheckoutModel : PageModel

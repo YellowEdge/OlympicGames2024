@@ -4,8 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using OgWeb.Models;
 
-namespace OgWeb.Pages;
+namespace OgWeb.Pages.Test;
 
+[Authorize(Policy = "TwoFactorEnabled")]
 public class UserModel : PageModel
 {
     private readonly UserManager<ApplicationUser> userManager;

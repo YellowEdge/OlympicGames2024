@@ -11,6 +11,7 @@ using OgWeb.Models;
 
 namespace OgWeb.Pages.Temp;
 
+[Authorize(Policy = "TwoFactorEnabled")]
 [Authorize(Roles = "admin")]
 public class DeleteModel : PageModel
 {

@@ -3,6 +3,7 @@
 #nullable disable
 
 using System;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -18,13 +19,24 @@ namespace OgWeb.Areas.Identity.Pages.Account
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LogoutModel> _logger;
 
-        public LogoutModel(SignInManager<ApplicationUser> signInManager, ILogger<LogoutModel> logger)
+        //down
+        private readonly UserManager<ApplicationUser> _userManager;
+        
+        public LogoutModel(SignInManager<ApplicationUser> signInManager, ILogger<LogoutModel> logger, UserManager<ApplicationUser> userManager)
         {
             _signInManager = signInManager;
             _logger = logger;
+            //down
+            _userManager = userManager;
         }
         public async Task<IActionResult> OnGet()
         {
+            var name = User.Identity.Name;   
+
+            var user = await _userManager.FindByNameAsync(name);
+            var claims = await _userManager.GetClaimsAsync(user);
+            await _userManager.RemoveClaimsAsync(user, claims);
+
             await _signInManager.SignOutAsync();
             return LocalRedirect("/");
         }

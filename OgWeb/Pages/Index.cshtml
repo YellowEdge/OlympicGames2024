@@ -1,5 +1,4 @@
 ﻿@page
-@model IndexModel
 @{
     Layout = null;
 }
@@ -9,7 +8,7 @@
     <title>JO 2024 Paris</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="~/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="~/css/style.css" rel="stylesheet">
 </head>
@@ -21,8 +20,8 @@
             <div class="container d-flex flex-column align-items-center">
                 <h1>Welcome</h1>
                 <h2>Paris 2024 Olympic Games - July 26 to August 11, 2024</h2>
-            </div>           
-            
+            </div>
+
             <div class="countdown d-flex justify-content-center" data-count="2024/07/26 19:30">
                 <div>
                     <h3>%d</h3>
@@ -40,7 +39,7 @@
                     <h3>%s</h3>
                     <h4>Seconds</h4>
                 </div>
-            </div>    
+            </div>
         </div>
     </header><!-- End #header -->
 
@@ -52,10 +51,9 @@
                     <h2>A historic opening ceremony on the Seine.</h2>
                     <h3>On July 26, 2024 in Paris, the largest open-air Olympic Games opening ceremony will begin at 7:30 p.m. sharp, Paris time. It will be 10:30 a.m. in Los Angeles, 2:30 p.m. in Rio de Janeiro, 6:30 p.m. in London, 8:30 p.m. in Athens...</h3>
                     <h3>The opening ceremony of the Paris 2024 Olympic Games promises an unprecedented experience, relying on the natural light of the setting sun with all its nuances to illuminate the river stroll of all the world's best athletes on the Seine, in the heart of the capital. Paris 2024 chose this moment to synchronize the fall of dusk and the story of the ceremony, thus offering an unforgettable spectacle, both day and night, to all spectators and viewers in harmony with nature and the external environment.</h3>
-                </div>                
+                </div>
             </div>
         </section><!-- End Ceremony -->
-
         <!-- ======= Tickets ======= -->
         <section id="about" class="about">
             <div class="container">
@@ -85,14 +83,13 @@
                 </div>
             </div>
         </section><!-- End Tickets -->
-
         <!-- ======= Cards ======= -->
         <section id="cards" class="cards">
-                <div class="section-title">
+            <div class="section-title">
                 <h2>HIGHTLITED SPORTS</h2>
                 <h3>Come discover the sports featured this week</h3>
-                </div>
-             <div class="container d-flex justify-content-around">
+            </div>
+            <div class="container d-flex justify-content-around">
                 <div class="card" style="width: 22rem;">
                     <div class="card-header">
                         Sailing
@@ -104,7 +101,7 @@
                         <a href="/misc/Voile" class="btn btn-primary">More information</a>
                     </div>
                     @* <div class="card-footer text-muted">
-                        2 days ago
+                    2 days ago
                     </div> *@
                 </div>
                 <div class="card" style="width: 22rem;">
@@ -118,7 +115,7 @@
                         <a href="/misc/HockeySurGazon" class="btn btn-primary">More information</a>
                     </div>
                     @* <div class="card-footer text-muted">
-                        2 days ago
+                    2 days ago
                     </div> *@
                 </div>
                 <div class="card" style="width: 22rem;">
@@ -132,66 +129,13 @@
                         <a href="/misc/Skateboard" class="btn btn-primary">More information</a>
                     </div>
                     @* <div class="card-footer text-muted">
-                        2 days ago
+                    2 days ago
                     </div> *@
-                </div>               
-            </div>
-        </section><!-- End Cards -->        
-
-        <!-- ======= Contact Us Section ======= -->
-        <section id="contact" class="contact">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Contact Us</h2>
-                    <h3>If you need information about the route of the opening ceremony of the Olympic games</h3>
-                </div>
-                <div class="row">
-                    <div class="col-lg-5 d-flex align-items-stretch">
-                        <div class="info">
-                            <div class="address">
-                                <i class="bi bi-geo-alt"></i>
-                                <h4>Location:</h4>
-                                <p>Tour Eiffel, Paris</p>
-                            </div>
-                            <div class="email">
-                                <i class="bi bi-envelope"></i>
-                                <h4>Email:</h4>
-                                <p>info@paris.jo</p>
-                            </div>
-                            <div class="phone">
-                                <i class="bi bi-phone"></i>
-                                <h4>Call:</h4>
-                                <p>+33 1 2607 2024</p>
-                            </div>
-                            <div class="d-flex align-items-stretch">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d45782.38134998337!2d2.315213796852532!3d48.878911284671766!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sTour%20Eiffel!5e0!3m2!1sfr!2sfr!4v1715182951617!5m2!1sfr!2sfr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-7 d-flex align-items-stretch">
-                        <div class="info d-flex align-items-stretch">
-                            <img src="~/img/misc/parcours-ceremonie-ouverture1.jpg" />
-                        </div>
-                    </div>
                 </div>
             </div>
-        </section><!-- End Contact Us Section -->
+        </section><!-- End Cards -->
 
-    </main><!-- End #main -->
-    <!-- ======= Footer ======= -->
-    <footer id="footer">
-        <div class="container">
-            <div class="copyright">
-                &copy; Copyright <strong><span>ParisJO2024</span></strong>. All Rights Reserved
-            </div>            
-        </div>
-    </footer><!-- End #footer -->
-
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-    <!-- Template Main JS File -->
-    <script src="~/js/main.js"></script> 
-
+        <partial name="_FooterLayoutNull" />
+        
 </body>
 </html>

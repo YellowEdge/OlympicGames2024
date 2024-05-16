@@ -134,7 +134,7 @@ namespace OgWeb.Areas.Identity.Pages.Account
                     Address = Input.Address,
                     CreatedAt = DateTime.Now,
                     UserKey = Guid.NewGuid().ToString()
-            };
+                };
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)

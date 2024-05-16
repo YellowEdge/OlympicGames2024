@@ -11,6 +11,7 @@ using OgWeb.Models;
 
 namespace OgWeb.Pages.Events;
 
+[Authorize(Policy = "TwoFactorEnabled")]
 [Authorize(Roles = "admin")]
 public class DetailsModel : PageModel
 {

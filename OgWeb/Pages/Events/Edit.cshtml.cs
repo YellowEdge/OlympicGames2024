@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace OgWeb.Pages.Events;
 
+[Authorize(Policy = "TwoFactorEnabled")]
 [Authorize(Roles = "admin")]
 public class EditModel : CategorieAndSiteNamePageModel
 {

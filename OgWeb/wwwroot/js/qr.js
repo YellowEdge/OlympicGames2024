@@ -3,7 +3,7 @@
     new QRCode(document.getElementById("qrCode"),
         {
             text: uri,
-            width: 300,
-            height: 300
+            width: 200,
+            height: 200
         });
 });

@@ -11,10 +11,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-builder.Services.ConfigureApplicationCookie(options =>
-{
-    options.AccessDeniedPath = new PathString("/AccessDenied");
-});
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+        options.SlidingExpiration = true;
+    });
 
 builder.Services.AddDbContext<ApplicationDbContext>(options=>options.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection")
@@ -24,7 +26,6 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
-//up
 builder.Services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>, AdditionalUserClaimsPrincipalFactory>();
 builder.Services.AddAuthorization(options =>
 {
@@ -32,7 +33,6 @@ builder.Services.AddAuthorization(options =>
         x => x.RequireClaim("TwoFactorEnabled", "true")
     );
 });
-//up
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -43,7 +43,6 @@ builder.Services.AddScoped<IQRCodeGeneratorRepository, QRCodeGeneratorRepository
 
 var app = builder.Build();
 
-// Uncomment it when you run the project first time, It will registered an admin
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;

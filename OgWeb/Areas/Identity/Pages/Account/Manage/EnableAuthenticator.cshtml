@@ -25,7 +25,7 @@
             <p>Scan the QR Code or enter this key <kbd>@Model.SharedKey</kbd> into your two factor authenticator app. Spaces and casing do not matter.</p>
             @* <div class="alert alert-info">Learn how to <a href="https://go.microsoft.com/fwlink/?Linkid=852423">enable QR code generation</a>.</div> *@
             @* <div class="d-flex justify-content-center" style="padding:13px; background-color:grey"> *@
-            <div class="d-flex justify-content-center bg-light" style="padding:13px;">
+            <div class="d-flex justify-content-center" style="background-color:cadetblue ;width:fit-content ;padding:13px;">
                 <div id="qrCode"></div>
                 <div id="qrCodeData" data-url="@Model.AuthenticatorUri"></div>
             </div>    
@@ -40,8 +40,8 @@
                 <div class="col-md-6">
                     <form id="send-code" method="post">
                         <div class="form-floating mb-3">
-                            <input asp-for="Input.Code" class="form-control" autocomplete="off" placeholder="Please enter the code."/>
-                            <label asp-for="Input.Code" class="control-label form-label">Verification Code</label>
+                            <input asp-for="Input.Code" class="form-control" autocomplete="off" placeholder="Please enter the code." style="background-color:cadetblue" />
+                            <label asp-for="Input.Code" class="control-label form-label" style="color:white">Verification Code</label>
                             <span asp-validation-for="Input.Code" class="text-danger"></span>
                         </div>
                         <button type="submit" class="w-100 btn btn-lg btn-primary">Verify</button>

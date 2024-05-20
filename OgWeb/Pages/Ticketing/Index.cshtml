@@ -11,12 +11,10 @@
 </div>
 
 <form asp-page="./Index" method="get">
-    <div class="form-actions no-color">
-        <p>
-            <h6>Find events:</h6>            
-            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
-            <input type="submit" value="Search" class="btn btn-primary" />
-        </p>
+    <div class="d-flex form-group mt-4 mb-4 col-4 align-items-center">
+        <label class="col-3">Find events</label>
+        <input class="form-control" type="text" name="SearchString" value="@Model.CurrentFilter" />
+        <input type="submit" value="Search" class="btn btn-primary" />
     </div>
 </form>
 

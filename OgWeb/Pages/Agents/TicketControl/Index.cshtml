@@ -1,5 +1,6 @@
-﻿@page 
+﻿@page
 @model IndexModel
+
 @{
     ViewData["Title"] = "Ticket Control";
 }
@@ -12,14 +13,16 @@
 </div>
 
 <div class="row col-md-8 m-auto" >
-    <form asp-page="Index" method="post">
+    <form id="myForm" asp-page="Index" method="post">
         <div class="mb-3"><h4>Scan the E-Ticket to control information about the client and the events.</h4></div>
         <div class="form-group">
+            @* <div asp-validation-summary="All"></div> *@
             <input asp-for="ScannedKey" class="form-control mb-3 placeholder="Enter E-Ticket key" />
             <span asp-validation-for="ScannedKey" class="text-danger"></span>
         </div>
         <div class="form-group">
             <input type="submit" value="Control" class="btn btn-primary" />
+            <a href="/Agents/TicketControl" class="btn btn-secondary">Reset</a>
         </div>
     </form>
 </div>

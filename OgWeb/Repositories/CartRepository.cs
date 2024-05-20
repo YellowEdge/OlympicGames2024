@@ -152,8 +152,7 @@ public class CartRepository : ICartRepository
             var cart = await GetCart(userId);
             if (cart is null)
                 throw new Exception("Invalid cart");
-            var cartDetail = _db.CartDetails
-                                .Where(a => a.ShoppingCartId == cart.Id).ToList();
+            var cartDetail = _db.CartDetails.Where(a => a.ShoppingCartId == cart.Id).ToList();
             if (cartDetail.Count == 0)
                 throw new Exception("Cart is empty");
             var statusRecord = _db.OrderStatuses.FirstOrDefault(s => s.StatusName == status);

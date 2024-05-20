@@ -12,8 +12,8 @@
 
 @if (Model.CartDetailEx is null)
 {
-    <h4>vous pouvez ajouter cet évènement dans le panier.</h4>
-    <h4>Choisissez l'offre que vous souhaitez afin d'ajouter cet évènement dans votre panier !</h4>
+    <h5>Vous pouvez ajouter cet évènement dans le panier.</h5>
+    <h5>Choisissez l'offre que vous souhaitez afin d'ajouter cet évènement dans votre panier !</h5>
     <div class="row">
         <div class="col-md-4">
             <form method="post" asp-page-handler="Add">
@@ -58,7 +58,7 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="CartDetailEx.Quantity" class="control-label"></label>
-                    <select style="background-color:aquamarine" asp-for="CartDetailEx.Quantity" class="form-control"
+                    <select style="background-color:cadetblue" asp-for="CartDetailEx.Quantity" class="form-control"
                             asp-items="@Model.OfferSL">
                         <option value="">-- Select Offer --</option>
                     </select>
@@ -75,8 +75,8 @@
 }
 else
 {
-    <h4>Cet évènement est déjà dans le panier.</h4>
-    <h4>Vous pouvez uniquement modifier l'offre si vous le souhaitez.</h4>
+    <h5>Cet évènement est déjà dans le panier.</h5>
+    <h5>Vous pouvez uniquement modifier l'offre si vous le souhaitez.</h5>
     <div class="row">
         <div class="col-md-4">
             <form method="post" asp-page-handler="Update">
@@ -86,7 +86,7 @@ else
                
                 <div class="form-group mb-3">
                     <label asp-for="CartDetailEx.Quantity" class="control-label"></label>
-                    <select style="background-color:aquamarine" asp-for="CartDetailEx.Quantity" class="form-control"
+                    <select style="background-color:cadetblue" asp-for="CartDetailEx.Quantity" class="form-control"
                             asp-items="@Model.OfferSL">
                         <option value="">-- Select Offer --</option>
                     </select>

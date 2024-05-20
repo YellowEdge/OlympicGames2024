@@ -19,12 +19,13 @@ public class IndexModel : PageModel
     public TicketControlModel TicketData { get; set; }
 
     [BindProperty]
-    [Required]
-    [StringLength(72)]
-    public string ScannedKey { get; set; }
+    [Required(ErrorMessage ="Provide a valid key !")]
+    [StringLength(72, ErrorMessage = "The key length is not valid !")]
+    [MinLength(72, ErrorMessage = "The key length is not valid !")]
+    public string? ScannedKey { get; set; }
     public string UserKey { get; set; }
 
-    public int TotalOrders { get; set; }
+    public int TotalOrders { get; set; } = 0;
     public IActionResult OnGet()
     {
         TicketData = new TicketControlModel();
@@ -32,17 +33,20 @@ public class IndexModel : PageModel
         return Page();
     }
 
-    public async Task OnPostAsync()
-    {
-        if (ScannedKey == null)
+    public async Task<IActionResult> OnPostAsync()
+    {		
+        if (!ModelState.IsValid)
         {
-            throw new ArgumentNullException(nameof(ScannedKey));
+            return Page();
         }
-        int length = 36;
 
+        int length = 36;
         UserKey = ScannedKey.Substring(0, length);
 
         TicketData = new TicketControlModel();
+        TicketData.usersByKey = null;
+        TicketData.orders = null;
+
         TicketData.orders = await _db.Orders
             .Where(x => x.TicketKey == ScannedKey)
             .Include(x => x.OrderStatus)
@@ -61,8 +65,9 @@ public class IndexModel : PageModel
             catch (Exception)
             {
 
-                TicketData.usersByKey = null;
+                TicketData.usersByKey = null;                
             }
         }
+        return Page();
     }
 }

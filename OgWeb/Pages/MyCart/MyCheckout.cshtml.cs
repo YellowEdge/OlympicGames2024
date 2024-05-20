@@ -10,7 +10,7 @@ namespace OgWeb.Pages.MyCart;
 
 [Authorize(Policy = "TwoFactorEnabled")]
 [Authorize(Roles = "admin,client")]
-//[IgnoreAntiforgeryToken]
+[IgnoreAntiforgeryToken]
 public class MyCheckoutModel : PageModel
 {
 	private readonly ICartRepository _cartRepo;
@@ -27,11 +27,11 @@ public class MyCheckoutModel : PageModel
         PaypalUrl = configuration["PaypalSettings:Url"]!;
 		_cartRepo = cartRepo;
 	}
-    public void OnGet(string name, string total)
+    public void OnGet()
     { 
         FullName = TempData["Name"]?.ToString() ?? "";
         Total = TempData["Total"]?.ToString() ?? "";
-        ViewData["heading"] = "Welcome to PayPal !";
+		ViewData["heading"] = "Welcome to PayPal !";
         TempData.Keep();
     }
 
@@ -39,7 +39,7 @@ public class MyCheckoutModel : PageModel
     {
         Total = TempData["Total"]?.ToString() ?? "";
 
-        if (Total == "")
+		if (Total == "")
         {
             Total = "0";
             //return new JsonResult("");
@@ -100,7 +100,6 @@ public class MyCheckoutModel : PageModel
     
     }
 
-	//added async task<jsonresult> à la place de JsonResult ici:
 	public async Task<JsonResult> OnPostCompleteOrder([FromBody] JsonObject data)
     {
         if (data == null || data["orderID"] == null) return new JsonResult("");

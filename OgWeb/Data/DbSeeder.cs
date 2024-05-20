@@ -101,11 +101,8 @@ public static class DbSeeder
                 await userMgr.AddToRoleAsync(bull, Roles.ticketcontrol.ToString());
             }
         }
-
-        
-
+                
         //Data
-
         var ATHLÉTISME = new Category
         {
             Name = "ATHLÉTISME",
@@ -226,6 +223,54 @@ public static class DbSeeder
         };
 
         context.AddRange(offers);
+
+        var Pending = new OrderStatus
+        {
+            StatusName = "Pending",
+            StatusId = 1
+        };
+
+        var Shipped = new OrderStatus
+        {
+            StatusName = "Shipped",
+            StatusId = 2
+        };
+
+        var Delivered = new OrderStatus
+        {
+            StatusName = "Delivered",
+            StatusId = 3
+        };
+
+        var Cancelled = new OrderStatus
+        {
+            StatusName = "Cancelled",
+            StatusId = 4
+        };
+
+        var Returned = new OrderStatus
+        {
+            StatusName = "Returned",
+            StatusId = 5
+        };
+
+        var Refund = new OrderStatus
+        {
+            StatusName = "Refund",
+            StatusId = 6
+        };
+
+        var orderStatuses = new OrderStatus[]
+        {
+            Pending,
+            Shipped,
+            Delivered,
+            Cancelled,
+            Returned,
+            Refund
+        };
+
+        context.AddRange(orderStatuses);
 
         var F100mH = new Event
         {

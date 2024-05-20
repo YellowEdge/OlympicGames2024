@@ -56,7 +56,7 @@ public class CartController : Controller
 		{
 			var cart = await _cartRepo.GetUserCart();
 			var Total = cart.CartDetails.Select(item => item.Event.Price * item.Quantity).Sum();
-			TempData["Total"] = Total.ToString();
+            TempData["Total"] = Total.ToString();
             TempData["Name"] = model.Name;
             TempData["Email"] = model.Email;
 			TempData["MobileNumber"] = model.MobileNumber;

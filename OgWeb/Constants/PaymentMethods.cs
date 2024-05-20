@@ -2,7 +2,7 @@
 
 public enum PaymentMethods
 {
-    Cash_On_Delivery = 1,
+    Check = 1,
     Online,
     Paypal
 }

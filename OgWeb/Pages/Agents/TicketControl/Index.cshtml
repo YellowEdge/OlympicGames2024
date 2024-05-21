@@ -83,9 +83,9 @@
     else
     {
         <h3 class="mb-3">
-            Order details
+            Control details
         </h3>
-        <h4 class="text-danger mb-3">Invalid key. Events not found. There is a problem !</h4>
+        <h4 class="text-danger mb-3">Invalid key. Event not valid. There is a problem !</h4>
     }
 
     @if (Model.TicketData.usersByKey != null)
@@ -129,8 +129,15 @@
         <h3 class="mb-3">
             Client details
         </h3>
-        <h4 class="text-danger">Client not found. There is a problem !</h4>
+        <h4 class="text-danger">Invalid key. Client not found. There is a problem !</h4>
     }
+}
+else if (Model.ScannedKey != null)
+{
+    <h3 class="mb-3">
+        Control details
+    </h3>
+    <h4 class="text-danger mb-3">Invalid key. There is a problem !</h4>
 }
 
 @section Scripts {

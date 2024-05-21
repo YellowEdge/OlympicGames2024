@@ -48,7 +48,7 @@ public class IndexModel : PageModel
         TicketData.orders = null;
 
         TicketData.orders = await _db.Orders
-            .Where(x => x.TicketKey == ScannedKey)
+            .Where(x => (x.TicketKey == ScannedKey) && (x.OrderStatusId == 3))
             .Include(x => x.OrderStatus)
             .Include(x => x.OrderDetails)
             .ThenInclude(x => x.Event)

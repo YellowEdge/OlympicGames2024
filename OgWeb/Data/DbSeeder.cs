@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Routing;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.Blazor;
 using OgWeb.Constants;
+using System.Net;
 
 namespace OgWeb.Data;
 
@@ -43,6 +44,9 @@ public static class DbSeeder
             {
                 UserName = "admin@paris.jo",
                 Email = "admin@paris.jo",
+                FirstName = "Admin",
+                LastName = "Smith",
+                Address = "Disney, Paris",
                 EmailConfirmed = true,
                 CreatedAt = DateTime.Now,
                 UserKey = Guid.NewGuid().ToString()
@@ -68,6 +72,9 @@ public static class DbSeeder
             {
                 UserName = "ana@paris.jo",
                 Email = "ana@paris.jo",
+                FirstName = "Admin",
+                LastName = "Smith",
+                Address = "Disney, Paris",
                 EmailConfirmed = true,
                 CreatedAt = DateTime.Now,
                 UserKey = Guid.NewGuid().ToString()
@@ -89,6 +96,9 @@ public static class DbSeeder
             {
                 UserName = "bull@paris.jo",
                 Email = "bull@paris.jo",
+                FirstName = "Bull",
+                LastName = "Smith",
+                Address = "Disney, Paris",
                 EmailConfirmed = true,
                 CreatedAt = DateTime.Now,
                 UserKey = Guid.NewGuid().ToString()

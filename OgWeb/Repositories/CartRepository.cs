@@ -61,7 +61,7 @@ public class CartRepository : ICartRepository
             _db.SaveChanges();
             transaction.Commit();
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             //throw new Exception(ex.Message); //added
         }
@@ -94,7 +94,7 @@ public class CartRepository : ICartRepository
             //    cartItem.Quantity = cartItem.Quantity - 1;
             _db.SaveChanges();
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             //throw new Exception(ex.Message); //added
         }
@@ -197,7 +197,7 @@ public class CartRepository : ICartRepository
 			
 			return true;
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             //throw new Exception(ex.Message); //added
             return false;

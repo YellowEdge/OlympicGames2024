@@ -48,6 +48,7 @@ public static class DbSeeder
                 LastName = "Smith",
                 Address = "Disney, Paris",
                 EmailConfirmed = true,
+                PhoneNumber = "0605040302",
                 CreatedAt = DateTime.Now,
                 UserKey = Guid.NewGuid().ToString()
             };
@@ -76,6 +77,7 @@ public static class DbSeeder
                 LastName = "Smith",
                 Address = "Disney, Paris",
                 EmailConfirmed = true,
+                PhoneNumber = "0605040302",
                 CreatedAt = DateTime.Now,
                 UserKey = Guid.NewGuid().ToString()
             };
@@ -100,6 +102,7 @@ public static class DbSeeder
                 LastName = "Smith",
                 Address = "Disney, Paris",
                 EmailConfirmed = true,
+                PhoneNumber = "0605040302",
                 CreatedAt = DateTime.Now,
                 UserKey = Guid.NewGuid().ToString()
             };

@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/MockLibrary.Tests/MockLibrary.Tests.csproj
+/OgWeb/ApplicationDbContext.sql
+/OgWeb/ApplicationDbContext.dgml
